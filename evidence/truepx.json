@@ -38,7 +38,7 @@
   "Phosphor Icons": {
     "markers": [
       {
-        "rule": "dom link[href*='@phosphor-icons/web']: href @phosphor-icons/web(?:@([\\d.]+))?\\;version:\\1",
+        "rule": "dom link[rel~='stylesheet'][href*='@phosphor-icons/web']: href @phosphor-icons/web(?:@(\\d+(?:\\.\\d+)*)?[^/]*)?/src/\\;version:\\1",
         "source": "https://github.com/phosphor-icons/web/blob/9634e6f3bccabbc1bf2c59dc283abd283d00946d/README.md?plain=1#L57",
         "license": "MIT"
       }
@@ -64,6 +64,14 @@
       {
         "found": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css\">",
         "why": "Bootstrap Icons, another icon font loaded as a stylesheet from a versioned npm CDN path (http://www.bmds-lab.ca/): not Phosphor's @phosphor-icons/web package"
+      },
+      {
+        "found": "<link rel=\"canonical\" href=\"https://bundlephobia.com/package/@phosphor-icons/web\" data-next-head=\"\"/>",
+        "why": "a package page's canonical link, which names the package without loading it (https://bundlephobia.com/package/@phosphor-icons/web): not a stylesheet, and no /src/ path"
+      },
+      {
+        "found": "<link rel=\"alternate\" type=\"text/markdown\" href=\"https://npm.io/package/@phosphor-icons/web.md\"/>",
+        "why": "a package page's link to its Markdown copy, which names the package without loading it (https://npm.io/package/@phosphor-icons/web): not a stylesheet, and no /src/ path"
       }
     ]
   },

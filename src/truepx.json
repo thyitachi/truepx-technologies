@@ -9,9 +9,9 @@
       17
     ],
     "dom": {
-      "link[href*='@phosphor-icons/web']": {
+      "link[rel~='stylesheet'][href*='@phosphor-icons/web']": {
         "attributes": {
-          "href": "@phosphor-icons/web(?:@([\\d.]+))?\\;version:\\1"
+          "href": "@phosphor-icons/web(?:@(\\d+(?:\\.\\d+)*)?[^/]*)?/src/\\;version:\\1"
         }
       }
     },
