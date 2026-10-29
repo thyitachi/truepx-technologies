@@ -1,1 +1,15 @@
-{}
+{
+  "Phosphor Icons": {
+    "cats": [
+      17
+    ],
+    "dom": {
+      "link[href*='@phosphor-icons/web']": {
+        "attributes": {
+          "href": "@phosphor-icons/web(?:@([\\d.]+))?\\;version:\\1"
+        }
+      }
+    },
+    "website": "https://phosphoricons.com"
+  }
+}
