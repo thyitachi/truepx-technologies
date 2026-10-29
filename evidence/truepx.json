@@ -30,5 +30,41 @@
         "why": "Bootstrap Icons, another icon font loaded as a stylesheet from a versioned npm CDN path (http://www.bmds-lab.ca/): not Phosphor's @phosphor-icons/web package"
       }
     ]
+  },
+  "React Aria": {
+    "markers": [
+      {
+        "rule": "dom [data-react-aria-pressable]:",
+        "source": "https://github.com/adobe/react-spectrum/blob/a562b335e645c172ec5a940b3e47ccdadbeeaa15/packages/react-aria/src/interactions/usePress.ts#L186",
+        "license": "Apache-2.0"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://vercel.com/",
+        "checked": "2026-10-29",
+        "found": "<a role=\"link\" href=\"/login\" type=\"submit\" tabindex=\"0\" data-react-aria-pressable=\"true\""
+      },
+      {
+        "url": "https://heroui.com/",
+        "checked": "2026-10-29",
+        "found": "data-rac=\"\" type=\"button\" tabindex=\"0\" data-react-aria-pressable=\"true\""
+      },
+      {
+        "url": "https://intentui.com/",
+        "checked": "2026-10-29",
+        "found": "aria-label=\"Goto homepage\" href=\"/\" tabindex=\"0\" data-react-aria-pressable=\"true\""
+      }
+    ],
+    "negative": [
+      {
+        "found": "type=\"button\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-headlessui-state=\"\"",
+        "why": "a menu button of Headless UI, another headless React library, with its own data attribute (https://headlessui.com/): no data-react-aria-pressable"
+      },
+      {
+        "found": "<button aria-label=\"Open Menu\" data-scope=\"dialog\" data-part=\"trigger\" dir=\"ltr\"",
+        "why": "a dialog trigger of Ark UI, which marks its parts with data-scope and data-part (https://ark-ui.com/): another headless library's button, no data-react-aria-pressable"
+      }
+    ]
   }
 }

@@ -11,5 +11,12 @@
       }
     },
     "website": "https://phosphoricons.com"
+  },
+  "React Aria": {
+    "cats": [
+      66
+    ],
+    "dom": "[data-react-aria-pressable]",
+    "website": "https://react-aria.adobe.com"
   }
 }
