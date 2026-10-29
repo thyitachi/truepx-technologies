@@ -1,4 +1,40 @@
 {
+  "Payload CMS": {
+    "markers": [
+      {
+        "rule": "headers X-Powered-By: Next\\.js, Payload",
+        "source": "https://github.com/payloadcms/payload/blob/96bc50e4fc91608cc04649c72de420f358cb49f7/packages/next/src/withPayload/withPayload.js#L14-L17",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://vercel.com/",
+        "checked": "2026-10-29",
+        "found": "x-powered-by: Next.js, Payload"
+      },
+      {
+        "url": "https://showandtell.agency/",
+        "checked": "2026-10-29",
+        "found": "x-powered-by: Next.js, Payload"
+      },
+      {
+        "url": "https://byteklaar.be/",
+        "checked": "2026-10-29",
+        "found": "x-powered-by: Next.js, Payload"
+      }
+    ],
+    "negative": [
+      {
+        "found": "x-powered-by: Next.js",
+        "why": "Next.js's own header on a Next.js site that runs another headless CMS (https://strapi.io/): Payload's withPayload turns Next.js's header off and sends Next.js, Payload instead"
+      },
+      {
+        "found": "x-powered-by: WordPress VIP <https://wpvip.com>",
+        "why": "the same header naming another CMS host (https://techcrunch.com/)"
+      }
+    ]
+  },
   "Phosphor Icons": {
     "markers": [
       {

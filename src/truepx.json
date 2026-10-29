@@ -1,4 +1,9 @@
 {
+  "Payload CMS": {
+    "headers": {
+      "X-Powered-By": "Next\\.js, Payload"
+    }
+  },
   "Phosphor Icons": {
     "cats": [
       17
