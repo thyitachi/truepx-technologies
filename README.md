@@ -28,15 +28,15 @@ Authored rules, the ones TruePx's own authors wrote, and the evidence for them l
     ],
     "positive": [
       { "url": "https://example.org/", "checked": "2026-10-29", "found": "/assets/example.js" },
-      { "url": "https://example.net/", "checked": "2026-10-29", "found": "/lib/example.js?v=3" }
+      { "url": "https://example.net/", "checked": "2026-10-29", "found": "Example/2.1" }
     ]
   }
 }
 ```
 
-- `markers`: the rules the technology is recognized by, each with where it comes from. A `rule` is written as in `src/truepx.json`: `<field>: <pattern>` for `url`, `scriptSrc`, `scripts`, `text`, `css` and `xhr`, and `<field> <key>: <pattern>` for `headers`, `cookies`, `meta`, `js` and `dom`, where the key is the header, cookie or meta name, the JavaScript property, or the CSS selector. `source` is the technology's own code or documentation, or the live page. `license` is the code's license, if the source is code.
-- `positive`: sites where the technology was seen. Two at least, each with the date it was checked (`YYYY-MM-DD`) and a short excerpt of what the page served (`found`) that one of the markers matches. For a cookie, `found` is the cookie's name, never its value.
-- `singleSite`: for a technology with only one positive site, why there is no second.
+- `markers`: one for each pattern the technology has in `src/truepx.json` (for `dom`, one for each selector), each with where it comes from. A `rule` is written as in `src/truepx.json`: `<field>: <pattern>` for `url`, `scriptSrc`, `scripts`, `text`, `css` and `xhr`, and `<field> <key>: <pattern>` for `headers`, `cookies`, `meta`, `js` and `dom`, where the key is the header, cookie or meta name, the JavaScript property, or the CSS selector. A rule is split at the first `": "`, so a selector that contains `": "` can't be written. The pattern part of a `dom` marker is informational: a `dom` marker is matched to its rule by selector. `source` is a link to the technology's own code or documentation, or to the live page. `license` is the code's license, if the source is code.
+- `positive`: sites where the technology was seen. Two at least, on different hosts, each with the date it was checked (`YYYY-MM-DD`, not in the future) and a short excerpt of what the page served (`found`). Each marker's pattern has to match the `found` of at least one site (a `dom` marker's pattern, and an empty one, need not), and every `found` has to make the markers detect the technology. Cookie rules are presence-only, because `found` for a cookie is its name, never its value.
+- `singleSite`: for a technology whose positive sites are all on one host, why there is no second.
 
 ## License
 
