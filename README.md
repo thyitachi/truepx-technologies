@@ -24,19 +24,27 @@ Authored rules, the ones TruePx's own authors wrote, and the evidence for them l
   "Example Technology": {
     "markers": [
       { "rule": "scriptSrc: /example\\.js", "source": "https://example.com/docs", "license": "MIT" },
-      { "rule": "headers x-powered-by: Example", "source": "https://example.com/docs" }
+      { "rule": "headers x-powered-by: Example", "source": "https://example.com/docs" },
+      { "rule": "implies: PHP", "source": "https://example.com/docs/requirements" }
     ],
     "positive": [
       { "url": "https://example.org/", "checked": "2026-10-29", "found": "/assets/example.js" },
       { "url": "https://example.net/", "checked": "2026-10-29", "found": "Example/2.1" }
+    ],
+    "negative": [
+      { "found": "/assets/sample.js", "why": "a script of another project with a similar name" }
     ]
   }
 }
 ```
 
-- `markers`: one for each pattern the technology has in `src/truepx.json` (for `dom`, one for each selector), each with where it comes from. A `rule` is written as in `src/truepx.json`: `<field>: <pattern>` for `url`, `scriptSrc`, `scripts`, `text`, `css` and `xhr`, and `<field> <key>: <pattern>` for `headers`, `cookies`, `meta`, `js` and `dom`, where the key is the header, cookie or meta name, the JavaScript property, or the CSS selector. A rule is split at the first `": "`, so a selector that contains `": "` can't be written. The pattern part of a `dom` marker is informational: a `dom` marker is matched to its rule by selector. `source` is a link to the technology's own code or documentation, or to the live page. `license` is the code's license, if the source is code.
-- `positive`: sites where the technology was seen. Two at least, on different hosts (`www.x.com` and `x.com` count as one), each with the date it was checked (`YYYY-MM-DD`, not in the future) and a short excerpt of what the page served (`found`). Each marker's pattern has to match the `found` of at least one site (a `dom` marker's pattern, and an empty one, need not), and every `found` has to make the markers detect the technology. Cookie rules are presence-only, because `found` for a cookie is its name, never its value.
-- `singleSite`: for a technology whose positive sites are all on one host, why there is no second.
+- `markers`: one for each pattern the technology has in `src/truepx.json` (for `dom`, one for each selector; for `implies`, one for each technology it implies), each with where it comes from. A `rule` is written as in `src/truepx.json`: `<field>: <pattern>` for `url`, `scriptSrc`, `scripts`, `text`, `css` and `xhr`; `<field> <key>: <pattern>` for `headers`, `cookies`, `meta`, `js` and `dom`, where the key is the header, cookie or meta name, the JavaScript property, or the CSS selector; and `implies: <value>`, with the value written as it is in `src/truepx.json`. A rule is split at the first `": "`, so a selector that contains `": "` can't be written. A `dom` marker is matched to its rule by selector: the pattern after the selector is only a note, and the patterns that count are the rule's own `text`, `attributes` and `properties` patterns. `source` is a link to the technology's own code or documentation, or to the live page; for `implies` it is the documentation or package manifest that shows the technology needs the other one. `license` is the code's license, if the source is code.
+- `positive`: sites where the technology was seen. Two at least, on different sites (`www.x.com`, `shop.x.com` and `x.com` are one site, while `a.github.io` and `b.github.io` are two), each with the date it was checked (`YYYY-MM-DD`, not in the future) and a short excerpt of what the page served (`found`, at most 200 characters, with no query string, token or session in it). Every pattern of the markers has to match the `found` of at least one site, the `text`, `attributes` and `properties` patterns of a `dom` rule included. A rule that only says something is there (a `dom` selector with no patterns, an empty pattern, an `implies`) has nothing to match. And every `found` has to make the markers detect the technology.
+- `negative`: at least one near miss, a real excerpt (`found`, at most 200 characters) from a page that looks like the technology but isn't it, and `why` it isn't. None of the technology's patterns may match it.
+- Cookie rules are presence-only: a cookie rule has no pattern, and `found` for a cookie is its name, never its value.
+- `singleSite`: for a technology whose positive sites are all on one site, why there is no second.
+
+A rule for a technology that is already in `src/technologies/` can add patterns and `implies`, but not `requires`, `requiresCategory` or `excludes`, which would change what is detected today. A new technology's `excludes` may name only technologies that are new in `src/truepx.json` too.
 
 ## License
 
