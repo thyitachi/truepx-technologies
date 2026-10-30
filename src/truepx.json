@@ -57,7 +57,7 @@
   },
   "Fastly": {
     "headers": {
-      "X-Served-By": "(?:^|[\\s,])cache-[a-z]{3}(?:-[a-z]+)?\\d+-[a-z]{3}(?:,|$)"
+      "X-Served-By": "(?<![^\\s,])cache-[a-z]{3}(?:-[a-z]+)?\\d+-[a-z]{3}(?=,|$)"
     }
   },
   "FedEx": {
@@ -180,7 +180,7 @@
       29
     ],
     "scriptSrc": [
-      "/pagefind(?:-component)?-ui\\.js(?:[?#]|$)"
+      "/pagefind(?:-component)?-ui\\.js(?=[?#]|$)"
     ],
     "website": "https://pagefind.app"
   },
@@ -231,7 +231,7 @@
       ]
     },
     "scriptSrc": [
-      "^https?://[^/]+/ppms\\.js(?:[?#]|$)"
+      "^https?://[^/]+/ppms\\.js(?=[?#]|$)"
     ]
   },
   "PubMatic": {
@@ -290,7 +290,7 @@
     "dom": {
       "[class*='svelte-']": {
         "attributes": {
-          "class": "(?:^|\\s)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?:\\s|$)"
+          "class": "(?<!\\S)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?!\\S)"
         }
       }
     }
