@@ -527,7 +527,7 @@
           {
             "url": "https://european-union.europa.eu/index_en",
             "checked": "2026-10-30",
-            "found": "Matomo javascript tracker or Piwik PRO javascript tracker was already initiated on this page",
+            "found": "var J={queueName:\"_paq\",objectName:\"Piwik\"} … \"object\"!==R(window[J.objectName])&&(window[J.objectName]=Kd)",
             "why": "Piwik PRO's own tracker (ppms.js, served from www.webanalytics.europa.eu) defines window.Piwik: the page runs Piwik PRO, not Matomo, and has no window.Matomo"
           }
         ]
