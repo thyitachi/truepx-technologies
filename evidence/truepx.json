@@ -35,6 +35,75 @@
       }
     ]
   },
+  "Bootstrap": {
+    "removed": [
+      {
+        "rule": "scriptSrc: (?:/|-)bootstrap(?:[^/]*?([0-9a-fA-F]{7,40}|[\\d]+(?:\\.[\\d]+(?:\\.[\\d]+)?)?)|)[^/]*?(?:\\.min)?\\.js\\;version:\\1",
+        "misfired": [
+          {
+            "url": "https://www.dell.com/",
+            "checked": "2026-10-30",
+            "found": "https://nexus.dell.com/dell/cmp/Bootstrap.js",
+            "why": "Ensighten's tag manager loader, served from Dell's own nexus.dell.com (it starts with ensightenInit and defines window.Bootstrapper): not Bootstrap"
+          },
+          {
+            "url": "https://www.datadoghq.com/",
+            "checked": "2026-10-30",
+            "found": "https://nexus.ensighten.com/choozle/17899/Bootstrap.js",
+            "why": "Ensighten's tag manager loader, from Ensighten's own nexus.ensighten.com (it starts with ensightenInit and defines window.Bootstrapper): not Bootstrap's script, though the page's own stylesheet carries Bootstrap's --bs- variables"
+          },
+          {
+            "url": "https://www.avast.com/",
+            "checked": "2026-10-30",
+            "found": "https://nexus.ensighten.com/symantec/avast_web/Bootstrap.js",
+            "why": "Ensighten's tag manager loader, from Ensighten's own nexus.ensighten.com (it starts with ensightenInit and defines window.Bootstrapper): not Bootstrap"
+          },
+          {
+            "url": "https://www.go.com/",
+            "checked": "2026-10-30",
+            "found": "https://dcf.espn.com/TWDC-DTCI/prod/Bootstrap.js",
+            "why": "Ensighten's tag manager loader, served from dcf.espn.com (it starts with ensightenInit and defines window.Bootstrapper): not Bootstrap"
+          },
+          {
+            "url": "https://chatgpt.com/",
+            "checked": "2026-10-30",
+            "found": "https://chatgpt.com/unauth-mweb/scripts/images-home-document-transition-bootstrap-a9b569d9a614.js",
+            "why": "a 498-character script of ChatGPT's own web app, for document transitions on its /images page: not Bootstrap"
+          },
+          {
+            "url": "https://www.paypal.com/",
+            "checked": "2026-10-30",
+            "found": "https://www.paypalobjects.com/martech/tm/paypal/gtm-bootstrap.js",
+            "why": "PayPal's own loader for its Google Tag Manager container (the file opens with 'GTM marketing bootstrap'): not Bootstrap"
+          },
+          {
+            "url": "https://www.bbc.com/",
+            "checked": "2026-10-30",
+            "found": "https://gn-web-assets.api.bbc.com/ngas/latest/dotcom-bootstrap.js",
+            "why": "the BBC's own start-up script for bbc.com, which sets up its cookie banner, consent and feature flags: not Bootstrap"
+          },
+          {
+            "url": "https://www.branch.io/",
+            "checked": "2026-10-30",
+            "found": "https://www.branch.io/wp-content/mu-plugins/branch-rudderstack/bootstrap.js",
+            "why": "a 280-character loader of the site's own RudderStack plugin, which loads loader.js from the same folder: not Bootstrap"
+          },
+          {
+            "url": "https://www.hostgator.com/",
+            "checked": "2026-10-30",
+            "found": "https://wsv3cdn.audioeye.com/bootstrap.js",
+            "why": "AudioEye's accessibility loader, from AudioEye's own CDN (it sets window.__audioEyeContext): not Bootstrap"
+          },
+          {
+            "url": "https://www.criteo.com/",
+            "checked": "2026-10-30",
+            "found": "https://criteo.my.site.com/ESWCriteoAssistant1769612549601/assets/js/bootstrap.min.js",
+            "why": "Salesforce's Embedded Messaging loader on the site's Salesforce site (my.site.com): the URL redirects to init.min.js, which defines embeddedservice_bootstrap. Not Bootstrap; the page loads Bootstrap 4.6.2 from another file, as its plugins' VERSION shows"
+          }
+        ]
+      }
+    ]
+  },
   "ClickCease": {
     "removed": [
       {
