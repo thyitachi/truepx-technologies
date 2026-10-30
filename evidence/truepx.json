@@ -1232,12 +1232,6 @@
         "url": "https://www.intuit.com/",
         "checked": "2026-10-30",
         "found": ".divide-x > :not([hidden]) ~ :not([hidden]) { --tw-divide-x-reverse: 0; border-left-width: calc(1px*(1 - var(--tw-divide-x-reverse)));"
-      },
-      {
-        "url": "https://tailwindcss.com/",
-        "checked": "2026-10-31",
-        "found": "--tw-space-y-reverse: 0; --tw-space-x-reverse: 0; --tw-divide-x-reverse: 0; --tw-border-style: solid; --tw-divide-y-reverse: 0;",
-        "why": "TruePx's live test (authored-live) shows this site UNPROVEN: the css names src/technologies/ lists for Tailwind (--tw-translate, --tw-space-x and the rest) are in the same stylesheet rules TruePx reads here, so its run with only the removals of src/truepx.json already lists Tailwind through css, and the site can't show this rule at work"
       }
     ],
     "negative": [
@@ -1245,7 +1239,8 @@
         "found": "*, ::before, ::after, ::backdrop { --un-bg-opacity: 100%; --un-border-opacity: 100%;",
         "why": "UnoCSS's own variables, under its --un- prefix (https://unocss.dev/): another utility-first CSS engine, not Tailwind"
       }
-    ]
+    ],
+    "singleSite": "intuit.com is the only site found where TruePx's live test can prove this marker. Of 51 sites checked for Tailwind on 31 Oct 2026, every other one that declares --tw-divide-x-reverse in the stylesheet rules TruePx reads (18 sites, tailwindcss.com among them, checked by hand: rule 0 of the rules read there declares it) also has the css names src/technologies/ lists for Tailwind in those rules. The run with only the removals of src/truepx.json, which the live test proves a marker against, already lists Tailwind there through css, so this marker can't be told apart. That is a limit of the check, not of the technology: Tailwind is on many sites"
   },
   "TanStack": {
     "markers": [
