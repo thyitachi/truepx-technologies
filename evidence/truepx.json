@@ -254,6 +254,81 @@
         "url": "https://www.mozilla.org/",
         "checked": "2026-10-30",
         "found": "x-served-by: cache-del-vibw2260031-DEL, cache-del-vibw2260031-DEL, cache-del-vibw2260033-DEL"
+      },
+      {
+        "url": "https://www.adobe.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-iad-kiad7000165-IAD, cache-iad-kiad7000165-IAD, cache-del-vibw2260026-DEL"
+      },
+      {
+        "url": "https://apache.org/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-hel1410028-HEL, cache-del-vibw2260027-DEL"
+      },
+      {
+        "url": "https://www.bbc.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260025-DEL"
+      },
+      {
+        "url": "https://www.cisco.com/site/us/en/about/corporate-strategy-office/acquisitions/meraki/index.html",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-iad-kiad7000067-IAD"
+      },
+      {
+        "url": "https://edition.cnn.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-chi-klot8100133-CHI, cache-chi-klot8100160-CHI, cache-del-vibw2260020-DEL"
+      },
+      {
+        "url": "https://dnsmadeeasy.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-iad-kiad7000125-IAD"
+      },
+      {
+        "url": "https://issuu.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-iad-khef600063-IAD, cache-del-vibw2260029-DEL"
+      },
+      {
+        "url": "https://linktr.ee/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260037-DEL, cache-del-vibw2260037-DEL, cache-del-vibw2260039-DEL"
+      },
+      {
+        "url": "https://www.nature.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-44d17904-internal, cache-del-vibw2260022-DEL, cache-del-vibw2260022-DEL"
+      },
+      {
+        "url": "https://www.okta.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-bom-vanm7210022-BOM"
+      },
+      {
+        "url": "https://www.paypal.com/in/home",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-sin-wsat1880075-SIN, cache-del-vibw2260032-DEL, cache-del-vibw2260032-DEL"
+      },
+      {
+        "url": "https://open.spotify.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260031-DEL"
+      },
+      {
+        "url": "https://link.springer.com/brands/springer",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260029-DEL, cache-del-vibw2260029-DEL"
+      },
+      {
+        "url": "https://unsplash.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-iad-kcgs7200085-IAD, cache-del-vibw2260023-DEL"
+      },
+      {
+        "url": "https://www.webex.com/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-bom-vanm7210087-BOM"
       }
     ],
     "negative": [
@@ -620,6 +695,31 @@
       },
       {
         "url": "https://applovin.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://amplitude.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://www.namecheap.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://www.avast.com/en-in/index",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://www.checkpoint.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://www.dynatrace.com/",
         "checked": "2026-10-30",
         "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
       }
@@ -1078,6 +1178,11 @@
         "url": "https://starlight.astro.build/",
         "checked": "2026-10-30",
         "found": "<div class=\"pagefind-ui svelte-e9gkc3 pagefind-ui--reset\"><form class=\"pagefind-ui__form svelte-e9gkc3\" role=\"search\" aria-label=\"Search this site\""
+      },
+      {
+        "url": "https://moskva.mts.ru/personal",
+        "checked": "2026-10-30",
+        "found": "prp-profile-b2c-widget svelte-13d03er"
       }
     ],
     "negative": [
@@ -1102,7 +1207,7 @@
         "found": "viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon"
       },
       {
-        "url": "https://mantine.dev/",
+        "url": "https://ui.mantine.dev/",
         "checked": "2026-10-30",
         "found": "viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-search"
       }
