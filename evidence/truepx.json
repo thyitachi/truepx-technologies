@@ -1,4 +1,533 @@
 {
+  "AdRoll": {
+    "removed": [
+      {
+        "rule": "scripts: (?:d|s)\\.adroll\\.com/",
+        "misfired": [
+          {
+            "url": "https://www.ui.com/",
+            "checked": "2026-10-30",
+            "found": "{\"Tag\":\"https://d.adroll.com/cm/g/in\",\"CategoryId\":[\"C0004\"],\"Vendor\":null}",
+            "why": "a rule in OneTrust's auto-blocking script (OtAutoBlock.js), which names scripts to hold back until consent; nothing on the page loads from adroll.com"
+          }
+        ]
+      }
+    ]
+  },
+  "Amazon Web Services": {
+    "removed": [
+      {
+        "rule": "scripts: \\.amazonaws\\.com",
+        "misfired": [
+          {
+            "url": "https://www.digicert.com/",
+            "checked": "2026-10-30",
+            "found": "\"s3.amazonaws.com\":[\"Essential\"]",
+            "why": "a domain in Transcend's consent configuration (airgap.js), with its consent purpose; the page loads nothing from amazonaws.com"
+          },
+          {
+            "url": "https://kensium.com/",
+            "checked": "2026-10-30",
+            "found": "https://hj-engage-unmoderated-review.s3.eu-west-1.amazonaws.com",
+            "why": "a URL in Hotjar's script (static.hotjar.com): Hotjar's own storage, not the site's hosting"
+          }
+        ]
+      }
+    ]
+  },
+  "ClickCease": {
+    "removed": [
+      {
+        "rule": "scripts: www\\.clickcease\\.com",
+        "misfired": [
+          {
+            "url": "https://www.digicert.com/",
+            "checked": "2026-10-30",
+            "found": "\"www.clickcease.com\":[\"Essential\"]",
+            "why": "a domain in Transcend's consent configuration (airgap.js), with its consent purpose; the page loads nothing from ClickCease"
+          }
+        ]
+      }
+    ]
+  },
+  "Cookie Control": {
+    "removed": [
+      {
+        "rule": "js CookieControl:",
+        "misfired": [
+          {
+            "url": "https://www.cm.com/",
+            "checked": "2026-10-30",
+            "found": "void 0===window.CookieControl&&(window.CookieControl={}),window.CookieControl.Cookie=function(n){",
+            "why": "Cookiebot's own script (consent.cookiebot.com/uc.js) creates window.CookieControl: the page runs Cookiebot, not Civic's Cookie Control, and loads nothing from civiccomputing.com"
+          },
+          {
+            "url": "https://lyric.tech/",
+            "checked": "2026-10-30",
+            "found": "void 0===window.CookieControl&&(window.CookieControl={}),window.CookieControl.Cookie=function(n){",
+            "why": "Cookiebot's own script (consent.cookiebot.com/uc.js) creates window.CookieControl: the page runs Cookiebot, not Civic's Cookie Control, and loads nothing from civiccomputing.com"
+          }
+        ]
+      }
+    ]
+  },
+  "DHL": {
+    "removed": [
+      {
+        "rule": "text: \\bDHL\\b",
+        "misfired": [
+          {
+            "url": "https://www.alibaba.com/",
+            "checked": "2026-10-30",
+            "found": "Door to Door DHL FEDEX UPS TNT EMS Express Service",
+            "why": "the title of a freight forwarder's listing in the page text, naming the couriers it books: not the shop's own carrier integration"
+          }
+        ]
+      },
+      {
+        "rule": "dom img[alt*='dhl' i]:",
+        "misfired": [
+          {
+            "url": "https://www.alibaba.com/",
+            "checked": "2026-10-30",
+            "found": "Door to Door DHL FEDEX UPS TNT EMS Express Service Sea Railway Air Shipping Agent China to USA UK FRANCE UAE Freight Forwarder",
+            "why": "the alt text of that listing's product image, which is its title"
+          }
+        ]
+      }
+    ]
+  },
+  "DoubleClick Floodlight": {
+    "markers": [
+      {
+        "rule": "dom iframe[src*='.fls.doubleclick.net/activityi']:",
+        "source": "https://support.google.com/campaignmanager/answer/2823450?hl=en"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.adobe.com/",
+        "checked": "2026-10-30",
+        "found": "<iframe height=\"0\" width=\"0\" src=\"https://9212252.fls.doubleclick.net/activityi;src=9212252;type=invmedia;cat=gtag_004;"
+      },
+      {
+        "url": "https://www.zendesk.com/",
+        "checked": "2026-10-30",
+        "found": "<iframe height=\"0\" width=\"0\" src=\"https://15086586.fls.doubleclick.net/activityi;src=15086586;type=page-0;cat=zende0;"
+      },
+      {
+        "url": "https://www.salesforce.com/",
+        "checked": "2026-10-30",
+        "found": "<iframe height=\"0\" width=\"0\" src=\"https://11463663.fls.doubleclick.net/activityi;src=11463663;type=pages0;cat=sfdc_00s;"
+      },
+      {
+        "url": "https://www.dell.com/",
+        "checked": "2026-10-30",
+        "found": "<iframe height=\"0\" width=\"0\" src=\"https://9632645.fls.doubleclick.net/activityi;src=9632645;type=aiqof0;cat=csb-g0;"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/939608520/",
+        "why": "Google Ads' remarketing tag on another DoubleClick host (https://www.dropcatch.com/): not a Floodlight activity"
+      }
+    ],
+    "removed": [
+      {
+        "rule": "scriptSrc: \\.doubleclick\\.net",
+        "misfired": [
+          {
+            "url": "https://www.dropcatch.com/",
+            "checked": "2026-10-30",
+            "found": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/939608520/",
+            "why": "Google Ads' remarketing tag, on another DoubleClick host: not a Floodlight activity"
+          }
+        ]
+      },
+      {
+        "rule": "scripts: fls\\.doubleclick\\.net",
+        "misfired": [
+          {
+            "url": "https://www.dropcatch.com/",
+            "checked": "2026-10-30",
+            "found": "nk[3]=function(a){return\"https://\"+a.fq+\".fls.doubleclick.net/activityi;\"}",
+            "why": "Google Tag Manager's container code (gtm.js), which carries the Floodlight tag template whether or not a Floodlight tag fires; none was requested on the page"
+          },
+          {
+            "url": "https://www.digicert.com/",
+            "checked": "2026-10-30",
+            "found": "\"8182015.fls.doubleclick.net\":[\"PersonalizedAdvertising\"]",
+            "why": "a domain in Transcend's consent configuration (airgap.js), with its consent purpose; no Floodlight activity was requested on the page"
+          }
+        ]
+      }
+    ]
+  },
+  "FedEx": {
+    "removed": [
+      {
+        "rule": "text: \\bFedEx\\b",
+        "misfired": [
+          {
+            "url": "https://www.alibaba.com/",
+            "checked": "2026-10-30",
+            "found": "Door to Door DHL FEDEX UPS TNT EMS Express Service",
+            "why": "the title of a freight forwarder's listing in the page text, naming the couriers it books: not the shop's own carrier integration"
+          }
+        ]
+      }
+    ]
+  },
+  "Format": {
+    "removed": [
+      {
+        "rule": "scripts: format\\.com",
+        "misfired": [
+          {
+            "url": "https://www.twitch.tv/",
+            "checked": "2026-10-30",
+            "found": "phone-number-with-format.component",
+            "why": "a component name in Twitch's own code, where the pattern reads 'format.com' inside 'format.component': not the Format site builder"
+          }
+        ]
+      }
+    ]
+  },
+  "Google AdSense": {
+    "markers": [
+      {
+        "rule": "scriptSrc: pagead2\\.googlesyndication\\.com/pagead/js/adsbygoogle\\.js\\?(?:[^#]*&)?client=ca-pub-",
+        "source": "https://support.google.com/adsense/answer/7584263?hl=en"
+      },
+      {
+        "rule": "dom ins.adsbygoogle[data-ad-client^='ca-pub-']:",
+        "source": "https://support.google.com/adsense/answer/9190028?hl=en"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.worldometers.info/",
+        "checked": "2026-10-30",
+        "found": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-"
+      },
+      {
+        "url": "https://www.lyrics.com/",
+        "checked": "2026-10-30",
+        "found": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-"
+      },
+      {
+        "url": "https://www.myip.com/",
+        "checked": "2026-10-30",
+        "found": "<ins class=\"adsbygoogle\" style=\"display: block; height: 280px;\" data-ad-client=\"ca-pub-"
+      },
+      {
+        "url": "https://www.iplocation.net/",
+        "checked": "2026-10-30",
+        "found": "<ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://pagead2.googlesyndication.com/tag/js/gpt.js",
+        "why": "Google Publisher Tag, Google Ad Manager's library, from AdSense's host (https://edition.cnn.com/): not the AdSense loader, and no publisher id"
+      }
+    ],
+    "removed": [
+      {
+        "rule": "scriptSrc: googlesyndication\\.com/",
+        "misfired": [
+          {
+            "url": "https://edition.cnn.com/",
+            "checked": "2026-10-30",
+            "found": "https://pagead2.googlesyndication.com/tag/js/gpt.js",
+            "why": "Google Publisher Tag, Google Ad Manager's library, from the same host: not AdSense"
+          },
+          {
+            "url": "https://www.nature.com/",
+            "checked": "2026-10-30",
+            "found": "https://pagead2.googlesyndication.com/tag/js/gpt.js",
+            "why": "Google Publisher Tag, Google Ad Manager's library, from the same host: not AdSense"
+          }
+        ]
+      },
+      {
+        "rule": "scriptSrc: 2mdn\\.net",
+        "misfired": [
+          {
+            "url": "https://www.wsj.com/",
+            "checked": "2026-10-30",
+            "found": "s0.2mdn.net/instream/video/client.js",
+            "why": "the IMA SDK's video ad client, served from Campaign Manager's 2mdn.net: video ads, not AdSense"
+          }
+        ]
+      },
+      {
+        "rule": "js adsbygoogle:",
+        "misfired": [
+          {
+            "url": "https://weather.com/",
+            "checked": "2026-10-30",
+            "found": "function Sa(){var n=window.adsbygoogle=window.adsbygoogle||[];if(n.loaded){Z(\"Initializing Module: AdSense\")",
+            "why": "Assertive Yield's script (client-v2.js) creates window.adsbygoogle; the page loads no AdSense script and has no ins.adsbygoogle unit"
+          }
+        ]
+      }
+    ]
+  },
+  "Google Analytics": {
+    "removed": [
+      {
+        "rule": "scriptSrc: googletagmanager\\.com/gtag/js",
+        "misfired": [
+          {
+            "url": "https://www.adobe.com/",
+            "checked": "2026-10-30",
+            "found": "https://www.googletagmanager.com/gtag/js?id=AW-",
+            "why": "the Google tag loaded for a Google Ads conversion id (AW-), not for an Analytics measurement id (G-)"
+          },
+          {
+            "url": "https://www.dropcatch.com/",
+            "checked": "2026-10-30",
+            "found": "https://www.googletagmanager.com/gtag/js?id=AW-",
+            "why": "the Google tag loaded for a Google Ads conversion id (AW-), not for an Analytics measurement id (G-)"
+          }
+        ]
+      }
+    ]
+  },
+  "Hermes": {
+    "removed": [
+      {
+        "rule": "text: \\bHermes\\b",
+        "misfired": [
+          {
+            "url": "https://www.ebay.com/",
+            "checked": "2026-10-30",
+            "found": "TOP SHELF HERMES, CHANEL, LV & MORE",
+            "why": "a promotion in the page text naming the fashion house Hermès: not the Hermes parcel service"
+          }
+        ]
+      }
+    ]
+  },
+  "HeroUI": {
+    "removed": [
+      {
+        "rule": "scripts: NextUI",
+        "misfired": [
+          {
+            "url": "https://linktr.ee/",
+            "checked": "2026-10-30",
+            "found": "this.random.nextUint32()",
+            "why": "a method call in the site's own code, where the case-insensitive pattern reads 'NextUI' in 'nextUint32': not the NextUI library"
+          },
+          {
+            "url": "https://applovin.com/en",
+            "checked": "2026-10-30",
+            "found": "this.j.nextUint32()",
+            "why": "a method call in the site's own code, where the case-insensitive pattern reads 'NextUI' in 'nextUint32': not the NextUI library"
+          }
+        ]
+      }
+    ]
+  },
+  "Kaltura": {
+    "removed": [
+      {
+        "rule": "scripts: kalturaPlayer",
+        "misfired": [
+          {
+            "url": "https://edition.cnn.com/",
+            "checked": "2026-10-30",
+            "found": "window.KalturaPlayer&&Pa(window.KalturaPlayer.getPlayers)",
+            "why": "Chartbeat's video script (chartbeat_video.js) checking for a Kaltura player, which the page doesn't have"
+          }
+        ]
+      }
+    ]
+  },
+  "Lightbox": {
+    "removed": [
+      {
+        "rule": "scriptSrc: lightbox(?:-plus-jquery)?.{0,32}\\.js",
+        "misfired": [
+          {
+            "url": "https://www.hubspot.com/",
+            "checked": "2026-10-30",
+            "found": "/hub_generated/template_assets/1/201641145502/1790171340750/template_csol-lightbox.mount.min.js",
+            "why": "a lightbox module of HubSpot's own CMS templates: not the Lightbox library"
+          }
+        ]
+      }
+    ]
+  },
+  "Litespeed Cache": {
+    "removed": [
+      {
+        "rule": "headers x-litespeed-cache:",
+        "misfired": [
+          {
+            "url": "https://www.plesk.com/",
+            "checked": "2026-10-30",
+            "found": "x-litespeed-cache: hit",
+            "why": "LiteSpeed's cache header: Litespeed Cache duplicates LiteSpeed Cache, which has the same rule"
+          }
+        ]
+      },
+      {
+        "rule": "headers x-turbo-charged-by:",
+        "misfired": [
+          {
+            "url": "https://www.plesk.com/",
+            "checked": "2026-10-30",
+            "found": "x-turbo-charged-by: LiteSpeed",
+            "why": "LiteSpeed's server header: Litespeed Cache duplicates LiteSpeed Cache, which has the same rule"
+          }
+        ]
+      }
+    ]
+  },
+  "Marko": {
+    "markers": [
+      {
+        "rule": "js Marko.Component:",
+        "source": "https://github.com/marko-js/marko/blob/90954702482eb358cdf8015de10762356b91a3bd/packages/runtime-class/src/runtime/vdom/marko-namespace.js#L1-L3",
+        "license": "MIT"
+      },
+      {
+        "rule": "js Marko.Component:",
+        "source": "https://github.com/marko-js/marko/blob/90954702482eb358cdf8015de10762356b91a3bd/packages/runtime-class/src/runtime/vdom/index.js#L3",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.ebay.co.uk/",
+        "checked": "2026-10-30",
+        "found": "\"use strict\";window.Marko={Component:function(){}}"
+      },
+      {
+        "url": "https://www.ebay.de/",
+        "checked": "2026-10-30",
+        "found": "\"use strict\";window.Marko={Component:function(){}}"
+      }
+    ],
+    "negative": [
+      {
+        "found": "n.markOverflow(u,y)",
+        "why": "a method whose name begins with 'mark', in a third-party script (https://www.zoom.com/): no Marko global"
+      }
+    ],
+    "singleSite": "both sites are eBay's, which makes Marko: no public site outside eBay was found running Marko 5's class-component runtime, the one that sets window.Marko",
+    "removed": [
+      {
+        "rule": "scripts: \\.marko(\\.js)?",
+        "misfired": [
+          {
+            "url": "https://www.zoom.com/",
+            "checked": "2026-10-30",
+            "found": "n.markOverflow(u,y)",
+            "why": "a method call in a third-party script (cdn.bc0a.com), where the case-insensitive pattern reads '.markO': not Marko"
+          },
+          {
+            "url": "https://www.t-online.de/",
+            "checked": "2026-10-30",
+            "found": "this.markOptions",
+            "why": "a property in the site's ad script (metaTag.min.js), where the case-insensitive pattern reads '.markO': not Marko"
+          }
+        ]
+      }
+    ]
+  },
+  "Matomo Analytics": {
+    "removed": [
+      {
+        "rule": "scripts: matomo(?:\\.min)?\\.js",
+        "misfired": [
+          {
+            "url": "https://www.dell.com/",
+            "checked": "2026-10-30",
+            "found": "{\"Tag\":\"https://www.dell.com/en-us/shopping/matomo.js\",\"CategoryId\":[\"C0009\"]",
+            "why": "a rule in OneTrust's auto-blocking script (OtAutoBlock.js), which names scripts to hold back until consent, for a script the page does not load"
+          }
+        ]
+      }
+    ]
+  },
+  "Next.js": {
+    "removed": [
+      {
+        "rule": "implies: Webpack",
+        "misfired": [
+          {
+            "url": "https://vercel.com/",
+            "checked": "2026-10-30",
+            "found": "/_next/static/immutable/chunks/turbopack-2vufcljv96rfs.js",
+            "why": "a Next.js site bundled by Turbopack: its chunks are Turbopack's, and the page has no webpack chunk array"
+          },
+          {
+            "url": "https://www.anthropic.com/",
+            "checked": "2026-10-30",
+            "found": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+            "why": "a Next.js site bundled by Turbopack: its chunks are Turbopack's, and the page has no webpack chunk array"
+          }
+        ]
+      }
+    ]
+  },
+  "Onsen UI": {
+    "removed": [
+      {
+        "rule": "scriptSrc: (/.*onsen.*min\\.js|.*angular-onsenui\\.min\\.js)",
+        "misfired": [
+          {
+            "url": "https://www.taboola.com/",
+            "checked": "2026-10-30",
+            "found": "https://cdn.consentmanager.net/delivery/js/cmp_final.min.js",
+            "why": "consentmanager's consent script, where the pattern reads 'onsen' inside 'consentmanager' and ends at '.min.js': not Onsen UI"
+          }
+        ]
+      }
+    ]
+  },
+  "parallax.js": {
+    "removed": [
+      {
+        "rule": "scriptSrc: parallax(?:\\/assets\\/js)?(?:\\/jquery)?(?:\\/scripts)?(?:\\/wow)?(?:[_\\.]move)?(?:\\.inview)?(?:\\.pkgd)?(?:\\.scrolling)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+        "misfired": [
+          {
+            "url": "https://www.who.int/",
+            "checked": "2026-10-30",
+            "found": "/ResourcePackages/WHO/assets/dist/scripts/parallax.min.js",
+            "why": "the site's own parallax script, built on GSAP: not parallax.js"
+          },
+          {
+            "url": "https://pushy.me/",
+            "checked": "2026-10-30",
+            "found": "/js/parallax.js",
+            "why": "the site's own parallax script (mr_parallax): not parallax.js"
+          }
+        ]
+      },
+      {
+        "rule": "scriptSrc: (?:((?:\\d+\\.)+\\d+)\\/)?parallax(?:\\/assets\\/js)?(?:\\/jquery)?(?:\\/scripts)?(?:\\/wow)?(?:[_\\.]move)?(?:\\.inview)?(?:\\.pkgd)?(?:\\.scrolling)?(?:\\.min)?\\.js\\;version:\\1",
+        "misfired": [
+          {
+            "url": "https://www.who.int/",
+            "checked": "2026-10-30",
+            "found": "/ResourcePackages/WHO/assets/dist/scripts/parallax.min.js",
+            "why": "the site's own parallax script, built on GSAP: not parallax.js"
+          },
+          {
+            "url": "https://pushy.me/",
+            "checked": "2026-10-30",
+            "found": "/js/parallax.js",
+            "why": "the site's own parallax script (mr_parallax): not parallax.js"
+          }
+        ]
+      }
+    ]
+  },
   "Payload CMS": {
     "markers": [
       {
@@ -35,11 +564,26 @@
       }
     ]
   },
+  "PayU Payment": {
+    "removed": [
+      {
+        "rule": "scripts: \\.payu\\.com",
+        "misfired": [
+          {
+            "url": "https://www.whatsapp.com/",
+            "checked": "2026-10-30",
+            "found": "\"https://secure.payu.com\"",
+            "why": "an origin in a list inside WhatsApp's own code; the page loads nothing from payu.com"
+          }
+        ]
+      }
+    ]
+  },
   "Phosphor Icons": {
     "markers": [
       {
         "rule": "dom link[rel~='stylesheet'][href*='@phosphor-icons/web']: href @phosphor-icons/web(?:@(\\d+(?:\\.\\d+)*)?[^/]*)?/src/\\;version:\\1",
-        "source": "https://github.com/phosphor-icons/web/blob/9634e6f3bccabbc1bf2c59dc283abd283d00946d/README.md?plain=1#L57",
+        "source": "https://github.com/phosphor-icons/web/blob/9634e6f3bccabbc1bf2c59dc283abd283d00946d/README.md?plain=1#L45-L57",
         "license": "MIT"
       }
     ],
@@ -72,6 +616,90 @@
       {
         "found": "<link rel=\"alternate\" type=\"text/markdown\" href=\"https://npm.io/package/@phosphor-icons/web.md\"/>",
         "why": "a package page's link to its Markdown copy, which names the package without loading it (https://npm.io/package/@phosphor-icons/web): not a stylesheet, and no /src/ path"
+      }
+    ]
+  },
+  "PHP": {
+    "removed": [
+      {
+        "rule": "scripts: \\.php(?:\\?|$)",
+        "misfired": [
+          {
+            "url": "https://edition.cnn.com/",
+            "checked": "2026-10-30",
+            "found": "rubiconproject.com/exchange/sync.php?p=",
+            "why": "a user-sync URL of Magnite's ad exchange in an ad script: another company's server, not this site's"
+          },
+          {
+            "url": "https://vimeo.com/",
+            "checked": "2026-10-30",
+            "found": "facebook.com/sharer.php?u=",
+            "why": "Facebook's share link in Elfsight's widget script (platform.js): Facebook's server, not this site's"
+          },
+          {
+            "url": "https://www.whatsapp.com/",
+            "checked": "2026-10-30",
+            "found": "facebook.com/profile.php?id=",
+            "why": "a link to a Facebook profile in the page's code: Facebook's server, not this site's"
+          }
+        ]
+      }
+    ]
+  },
+  "Piwik PRO Core": {
+    "removed": [
+      {
+        "rule": "scripts: piwik",
+        "misfired": [
+          {
+            "url": "https://wordpress.com/",
+            "checked": "2026-10-30",
+            "found": "\"ethyca\",\"PiwikPro\",\"SecurePrivacy\"",
+            "why": "a list of consent platforms in Microsoft's UET tag (bat.js): a name in another company's code, not Piwik PRO"
+          },
+          {
+            "url": "https://european-union.europa.eu/index_en",
+            "checked": "2026-10-30",
+            "found": "window.Matomo=window.Piwik=",
+            "why": "Matomo's own tracker (matomo.js), which keeps its old name Piwik as an alias: the page runs Matomo, which Piwik PRO Core excludes, so the match also hid Matomo"
+          },
+          {
+            "url": "https://www.cpanel.net/",
+            "checked": "2026-10-30",
+            "found": "\"piwikpro\"===i&&executeWithRetry(",
+            "why": "a branch of Mida's integration script for sites that use Piwik PRO; the page loads nothing from piwik.pro"
+          }
+        ]
+      }
+    ]
+  },
+  "PubMatic": {
+    "removed": [
+      {
+        "rule": "scriptSrc: https?://[^/]*\\.pubmatic\\.com",
+        "misfired": [
+          {
+            "url": "https://pubmatic.com/",
+            "checked": "2026-10-30",
+            "found": "https://go.pubmatic.com/analytics",
+            "why": "Salesforce Pardot's tracker, on the go.pubmatic.com subdomain of PubMatic's own marketing site: not PubMatic's ad stack"
+          }
+        ]
+      }
+    ]
+  },
+  "PyScript": {
+    "removed": [
+      {
+        "rule": "cookies _mkto_trk:",
+        "misfired": [
+          {
+            "url": "https://www.dropbox.com/",
+            "checked": "2026-10-30",
+            "found": "_mkto_trk",
+            "why": "Marketo's tracking cookie (Munchkin): not PyScript's; the page has no py-script element"
+          }
+        ]
       }
     ]
   },
@@ -108,6 +736,172 @@
       {
         "found": "<button aria-label=\"Open Menu\" data-scope=\"dialog\" data-part=\"trigger\" dir=\"ltr\"",
         "why": "a dialog trigger of Ark UI, which marks its parts with data-scope and data-part (https://ark-ui.com/): another headless library's button, no data-react-aria-pressable"
+      }
+    ]
+  },
+  "reCAPTCHA": {
+    "removed": [
+      {
+        "rule": "scripts: /recaptcha/api\\.js",
+        "misfired": [
+          {
+            "url": "https://www.digicert.com/",
+            "checked": "2026-10-30",
+            "found": "{\"matcher\":\"//www.google.com/recaptcha/api.js\",\"purposes\":[\"Essential\",\"Functional\"]",
+            "why": "a rule in Transcend's consent configuration (airgap.js); the page loads no reCAPTCHA"
+          }
+        ]
+      }
+    ]
+  },
+  "Sanity.io": {
+    "removed": [
+      {
+        "rule": "dom img[src*='cdn.sanity.io'],img[srcset*='cdn.sanity.io'],video[src*='cdn.sanity.io'],source[src*='cdn.sanity.io'],source[srcset*='cdn.sanity.io'],track[src*='cdn.sanity.io']:",
+        "misfired": [
+          {
+            "url": "https://www.name.com/",
+            "checked": "2026-10-30",
+            "found": "https://cdn.sanity.io/images/nrx5gn06/production/6a4f332bf3cb76bb707d3305aba8698c0a2c2375-2914x1204.png",
+            "why": "an image on Sanity's CDN: Sanity.io duplicates Sanity, which has the same rule"
+          }
+        ]
+      },
+      {
+        "rule": "headers content-security-policy:",
+        "misfired": [
+          {
+            "url": "https://www.f5.com/",
+            "checked": "2026-10-30",
+            "found": "*.trustarc.com dpm.demdex.net cdn.sanity.io r.turn.com",
+            "why": "Sanity's CDN in the page's Content-Security-Policy: Sanity.io duplicates Sanity, which has the same rule"
+          },
+          {
+            "url": "https://www.anthropic.com/",
+            "checked": "2026-10-30",
+            "found": "img-src 'self' data: https://cdn.sanity.io",
+            "why": "Sanity's CDN in the page's Content-Security-Policy: Sanity.io duplicates Sanity, which has the same rule"
+          }
+        ]
+      },
+      {
+        "rule": "headers x-sanity-shard:",
+        "misfired": [
+          {
+            "url": "https://3do82whm.api.sanity.io/v2021-10-21/data/query/next?query=count(*)",
+            "checked": "2026-10-30",
+            "found": "x-sanity-shard: gcp-eu-w1-prod-40038",
+            "why": "the header of Sanity's own API: Sanity.io duplicates Sanity, which has the same rule"
+          }
+        ]
+      },
+      {
+        "rule": "xhr: api(?:cdn)?\\.sanity\\.io",
+        "misfired": [
+          {
+            "url": "https://demo.sanity.studio/",
+            "checked": "2026-10-30",
+            "found": "o5c4a67e.api.sanity.io",
+            "why": "a request to Sanity's API: Sanity.io duplicates Sanity, which has the same rule"
+          }
+        ]
+      }
+    ]
+  },
+  "ServiceNow": {
+    "removed": [
+      {
+        "rule": "js s_giq:",
+        "misfired": [
+          {
+            "url": "https://www.espn.com/",
+            "checked": "2026-10-30",
+            "found": "s_giq = 0",
+            "why": "Adobe Analytics' AppMeasurement global, on a page with no ServiceNow"
+          }
+        ]
+      }
+    ]
+  },
+  "UPS": {
+    "removed": [
+      {
+        "rule": "text: \\b(?<!-)UPS\\b",
+        "misfired": [
+          {
+            "url": "https://www.alibaba.com/",
+            "checked": "2026-10-30",
+            "found": "Door to Door DHL FEDEX UPS TNT EMS Express Service",
+            "why": "the title of a freight forwarder's listing in the page text, naming the couriers it books: not the shop's own carrier integration"
+          }
+        ]
+      }
+    ]
+  },
+  "Webpack": {
+    "markers": [
+      {
+        "rule": "js webpackChunk_N_E:",
+        "source": "https://github.com/vercel/next.js/blob/29bbeab09981148ade186e8599ecdede15abc281/packages/next/src/build/webpack-config.ts#L1341-L1344",
+        "license": "MIT"
+      },
+      {
+        "rule": "js webpackChunk_N_E:",
+        "source": "https://github.com/webpack/webpack/blob/e95a7f2764281318c038e9384371797dfef0e48a/lib/config/defaults.js#L1629-L1639",
+        "license": "MIT"
+      },
+      {
+        "rule": "js webpackChunk_N_E:",
+        "source": "https://github.com/webpack/webpack/blob/e95a7f2764281318c038e9384371797dfef0e48a/lib/config/defaults.js#L1989-L1993",
+        "license": "MIT"
+      },
+      {
+        "rule": "js webpackJsonp_N_E:",
+        "source": "https://github.com/vercel/next.js/blob/4f32a03ffa4902a91292d2266ec5f73b8e2b5384/packages/next/build/webpack-config.ts#L924",
+        "license": "MIT"
+      },
+      {
+        "rule": "js webpackJsonp_N_E:",
+        "source": "https://github.com/webpack/webpack/blob/dfffd6a241bf1d593b3fd31b4b279f96f4a4aab1/lib/WebpackOptionsDefaulter.js#L120-L124",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://stripe.com/",
+        "checked": "2026-10-30",
+        "found": "\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([["
+      },
+      {
+        "url": "https://www.yahoo.com/",
+        "checked": "2026-10-30",
+        "found": "\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[587],{"
+      },
+      {
+        "url": "https://www.intuit.com/",
+        "checked": "2026-10-30",
+        "found": "(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[567],{"
+      }
+    ],
+    "negative": [
+      {
+        "found": "/_next/static/immutable/chunks/turbopack-2vufcljv96rfs.js",
+        "why": "a Next.js site bundled by Turbopack (https://vercel.com/): Turbopack's own chunk, with no webpack chunk array on the page"
+      }
+    ]
+  },
+  "Wix eCommerce": {
+    "removed": [
+      {
+        "rule": "scripts: static\\.wixstatic\\.com",
+        "misfired": [
+          {
+            "url": "https://mts.ru/",
+            "checked": "2026-10-30",
+            "found": "document.querySelector('script[src*=\"static.parastorage.com\"], script[src*=\"static.wixstatic.com\"]')",
+            "why": "Yandex Metrica's e-commerce script (tag_ec.js) looking for Wix's scripts; the page is not a Wix site"
+          }
+        ]
       }
     ]
   }

@@ -12,7 +12,7 @@ TruePx downloads these files at a fixed commit and checks each one against a che
 
 Authored rules, the ones TruePx's own authors wrote, and the evidence for them live in this repository.
 
-- `src/truepx.json` holds the rules. TruePx downloads it with the other files in `src/` and adds its rules to the technologies; they never remove or replace anything.
+- `src/truepx.json` holds the rules. TruePx downloads it with the other files in `src/` and adds its rules to the technologies. A rule only adds, except for an explicit `remove`, which takes out of a technology the values its evidence shows to misfire (see [Removals](#removals)); nothing else is removed or replaced.
 - `evidence/` holds the evidence for each rule, in `evidence/truepx.json`. TruePx does not download it.
 
 ## Evidence format
@@ -44,7 +44,41 @@ Authored rules, the ones TruePx's own authors wrote, and the evidence for them l
 - Cookie rules are presence-only: a cookie rule has no pattern, and `found` for a cookie is its name, never its value. When a technology's markers are all cookies (an `implies` apart), the `found` of a `positive` is one of those names, and the `found` of a `negative` is the name of another cookie: made only of letters, digits and `` !#$%&'*+-.^_`|~ `` (all that RFC 6265 allows in a cookie name, so no `=`, `;`, `:`, space, quote, slash or brace), and none of the technology's own. That keeps out pairs like `name=value`, JSON and paths, but not a bare value, which is made of the same characters (hex, a UUID, base64url, a JWT): hand review covers bare values.
 - `singleSite`: for a technology whose positive sites are all on one site, why there is no second.
 
-A rule for a technology that is already in `src/technologies/` can add patterns and `implies`, but not `cats`, `requires`, `requiresCategory` or `excludes`, which would change what is detected today (a category it gained would reclassify it, and set off the technologies that wait for that category). A new technology needs `cats`, with at least one category, and its `excludes` may name only technologies that are new in `src/truepx.json` too. An entry for a technology that is already in `src/technologies/` needs `positive` sites where `src/technologies/` alone doesn't already detect that technology through the field (and key) of a marker, because the live test proves a marker against a run without `src/truepx.json`, and a site where that run already shows the technology through the same field and key proves nothing about the marker.
+A rule for a technology that is already in `src/technologies/` can add patterns and `implies`, but not `cats`, `requires`, `requiresCategory` or `excludes`, which would change what is detected today (a category it gained would reclassify it, and set off the technologies that wait for that category). A new technology needs `cats`, with at least one category, and its `excludes` may name only technologies that are new in `src/truepx.json` too. An entry for a technology that is already in `src/technologies/` needs `positive` sites where `src/technologies/` alone doesn't already detect that technology through the field (and key) of a marker, because the live test proves a marker against a run with only the removals of `src/truepx.json`, and a site where that run already shows the technology through the same field and key proves nothing about the marker.
+
+## Removals
+
+An entry for a technology that is already in `src/technologies/` may carry `remove`, which TruePx applies before it adds the entry's own patterns:
+
+```json
+{
+  "Example Technology": {
+    "remove": { "scripts": ["example"], "js": ["exampleGlobal"], "dom": ["img[alt*='example' i]"] }
+  }
+}
+```
+
+- It takes out the exact values of `implies`, `excludes`, `requires`, `requiresCategory`, `url`, `scriptSrc`, `scripts`, `text`, `css` and `xhr`; keys of `headers`, `cookies`, `meta` and `js`, written as they are in `src/technologies/`; and `dom` selectors. Each value has to be in the technology exactly, each field is a list, and the entry must not add a value it removes back.
+- An entry with nothing but `remove` detects nothing, so its evidence has no `markers`, `positive` or `negative`. An entry that also adds patterns needs them for what it adds, as any other.
+- Its evidence has `removed`, an item for each value removed:
+
+```json
+{
+  "Example Technology": {
+    "removed": [
+      {
+        "rule": "scripts: example",
+        "misfired": [
+          { "url": "https://example.org/", "checked": "2026-10-30", "found": "var example = 1", "why": "a variable of the site's own code, not Example Technology" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `rule` is written as a marker's `rule` is, its field one that `remove` takes: `scripts: example`, `implies: Other Technology`, `js exampleGlobal:`, `dom img[alt*='example' i]:`.
+- `misfired`: at least one page where the value matched something that is not the technology, with the date it was checked, a short excerpt of what it matched (`found`, at most 200 characters; for a cookie, its name and never its value) and `why`: what the excerpt really is, and whose it is. For an entry that duplicates another, `why` names the entry it duplicates.
 
 ## License
 

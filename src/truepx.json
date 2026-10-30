@@ -1,7 +1,174 @@
 {
+  "AdRoll": {
+    "remove": {
+      "scripts": [
+        "(?:d|s)\\.adroll\\.com/"
+      ]
+    }
+  },
+  "Amazon Web Services": {
+    "remove": {
+      "scripts": [
+        "\\.amazonaws\\.com"
+      ]
+    }
+  },
+  "ClickCease": {
+    "remove": {
+      "scripts": [
+        "www\\.clickcease\\.com"
+      ]
+    }
+  },
+  "Cookie Control": {
+    "remove": {
+      "js": [
+        "CookieControl"
+      ]
+    }
+  },
+  "DHL": {
+    "remove": {
+      "text": [
+        "\\bDHL\\b"
+      ],
+      "dom": [
+        "img[alt*='dhl' i]"
+      ]
+    }
+  },
+  "DoubleClick Floodlight": {
+    "remove": {
+      "scriptSrc": [
+        "\\.doubleclick\\.net"
+      ],
+      "scripts": [
+        "fls\\.doubleclick\\.net"
+      ]
+    },
+    "dom": "iframe[src*='.fls.doubleclick.net/activityi']"
+  },
+  "FedEx": {
+    "remove": {
+      "text": [
+        "\\bFedEx\\b"
+      ]
+    }
+  },
+  "Format": {
+    "remove": {
+      "scripts": [
+        "format\\.com"
+      ]
+    }
+  },
+  "Google AdSense": {
+    "remove": {
+      "scriptSrc": [
+        "googlesyndication\\.com/",
+        "2mdn\\.net"
+      ],
+      "js": [
+        "adsbygoogle"
+      ]
+    },
+    "dom": "ins.adsbygoogle[data-ad-client^='ca-pub-']",
+    "scriptSrc": [
+      "pagead2\\.googlesyndication\\.com/pagead/js/adsbygoogle\\.js\\?(?:[^#]*&)?client=ca-pub-"
+    ]
+  },
+  "Google Analytics": {
+    "remove": {
+      "scriptSrc": [
+        "googletagmanager\\.com/gtag/js"
+      ]
+    }
+  },
+  "Hermes": {
+    "remove": {
+      "text": [
+        "\\bHermes\\b"
+      ]
+    }
+  },
+  "HeroUI": {
+    "remove": {
+      "scripts": [
+        "NextUI"
+      ]
+    }
+  },
+  "Kaltura": {
+    "remove": {
+      "scripts": [
+        "kalturaPlayer"
+      ]
+    }
+  },
+  "Lightbox": {
+    "remove": {
+      "scriptSrc": [
+        "lightbox(?:-plus-jquery)?.{0,32}\\.js"
+      ]
+    }
+  },
+  "Litespeed Cache": {
+    "remove": {
+      "headers": [
+        "x-litespeed-cache",
+        "x-turbo-charged-by"
+      ]
+    }
+  },
+  "Marko": {
+    "remove": {
+      "scripts": [
+        "\\.marko(\\.js)?"
+      ]
+    },
+    "js": {
+      "Marko.Component": ""
+    }
+  },
+  "Matomo Analytics": {
+    "remove": {
+      "scripts": [
+        "matomo(?:\\.min)?\\.js"
+      ]
+    }
+  },
+  "Next.js": {
+    "remove": {
+      "implies": [
+        "Webpack"
+      ]
+    }
+  },
+  "Onsen UI": {
+    "remove": {
+      "scriptSrc": [
+        "(/.*onsen.*min\\.js|.*angular-onsenui\\.min\\.js)"
+      ]
+    }
+  },
+  "parallax.js": {
+    "remove": {
+      "scriptSrc": [
+        "parallax(?:\\/assets\\/js)?(?:\\/jquery)?(?:\\/scripts)?(?:\\/wow)?(?:[_\\.]move)?(?:\\.inview)?(?:\\.pkgd)?(?:\\.scrolling)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+        "(?:((?:\\d+\\.)+\\d+)\\/)?parallax(?:\\/assets\\/js)?(?:\\/jquery)?(?:\\/scripts)?(?:\\/wow)?(?:[_\\.]move)?(?:\\.inview)?(?:\\.pkgd)?(?:\\.scrolling)?(?:\\.min)?\\.js\\;version:\\1"
+      ]
+    }
+  },
   "Payload CMS": {
     "headers": {
       "X-Powered-By": "Next\\.js, Payload"
+    }
+  },
+  "PayU Payment": {
+    "remove": {
+      "scripts": [
+        "\\.payu\\.com"
+      ]
     }
   },
   "Phosphor Icons": {
@@ -17,11 +184,87 @@
     },
     "website": "https://phosphoricons.com"
   },
+  "PHP": {
+    "remove": {
+      "scripts": [
+        "\\.php(?:\\?|$)"
+      ]
+    }
+  },
+  "Piwik PRO Core": {
+    "remove": {
+      "scripts": [
+        "piwik"
+      ]
+    }
+  },
+  "PubMatic": {
+    "remove": {
+      "scriptSrc": [
+        "https?://[^/]*\\.pubmatic\\.com"
+      ]
+    }
+  },
+  "PyScript": {
+    "remove": {
+      "cookies": [
+        "_mkto_trk"
+      ]
+    }
+  },
   "React Aria": {
     "cats": [
       66
     ],
     "dom": "[data-react-aria-pressable]",
     "website": "https://react-aria.adobe.com"
+  },
+  "reCAPTCHA": {
+    "remove": {
+      "scripts": [
+        "/recaptcha/api\\.js"
+      ]
+    }
+  },
+  "Sanity.io": {
+    "remove": {
+      "dom": [
+        "img[src*='cdn.sanity.io'],img[srcset*='cdn.sanity.io'],video[src*='cdn.sanity.io'],source[src*='cdn.sanity.io'],source[srcset*='cdn.sanity.io'],track[src*='cdn.sanity.io']"
+      ],
+      "headers": [
+        "content-security-policy",
+        "x-sanity-shard"
+      ],
+      "xhr": [
+        "api(?:cdn)?\\.sanity\\.io"
+      ]
+    }
+  },
+  "ServiceNow": {
+    "remove": {
+      "js": [
+        "s_giq"
+      ]
+    }
+  },
+  "UPS": {
+    "remove": {
+      "text": [
+        "\\b(?<!-)UPS\\b"
+      ]
+    }
+  },
+  "Webpack": {
+    "js": {
+      "webpackChunk_N_E": "",
+      "webpackJsonp_N_E": ""
+    }
+  },
+  "Wix eCommerce": {
+    "remove": {
+      "scripts": [
+        "static\\.wixstatic\\.com"
+      ]
+    }
   }
 }
