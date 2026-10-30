@@ -175,6 +175,15 @@
     ],
     "website": "https://developers.openai.com/ads/measurement-pixel"
   },
+  "Pagefind": {
+    "cats": [
+      29
+    ],
+    "scriptSrc": [
+      "/pagefind(?:-component)?-ui\\.js(?:[?#]|$)"
+    ],
+    "website": "https://pagefind.app"
+  },
   "parallax.js": {
     "remove": {
       "scriptSrc": [

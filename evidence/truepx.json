@@ -635,6 +635,38 @@
       }
     ]
   },
+  "Pagefind": {
+    "markers": [
+      {
+        "rule": "scriptSrc: /pagefind(?:-component)?-ui\\.js(?:[?#]|$)",
+        "source": "https://github.com/CloudCannon/pagefind/blob/0b57df879ea1d5986906238cf919cdc508b7b96b/pagefind/src/output/mod.rs#L180",
+        "license": "MIT"
+      },
+      {
+        "rule": "scriptSrc: /pagefind(?:-component)?-ui\\.js(?:[?#]|$)",
+        "source": "https://github.com/CloudCannon/pagefind/blob/0b57df879ea1d5986906238cf919cdc508b7b96b/pagefind/src/output/mod.rs#L204",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://apache.org/",
+        "checked": "2026-10-30",
+        "found": "https://apache.org/_pagefind/pagefind-ui.js"
+      },
+      {
+        "url": "https://pagefind.app/",
+        "checked": "2026-10-30",
+        "found": "https://pagefind.app/pagefind/pagefind-component-ui.js"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://www.mkdocs.org/search/main.js",
+        "why": "MkDocs's own search script, another static site's search (https://www.mkdocs.org/): not Pagefind"
+      }
+    ]
+  },
   "parallax.js": {
     "removed": [
       {
