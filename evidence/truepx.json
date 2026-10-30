@@ -1081,6 +1081,33 @@
     ],
     "singleSite": "the other Tailwind pages checked already show Tailwind through the css names src/technologies/ lists, in the stylesheet rules TruePx reads, or have no stylesheet TruePx can read (linkedin.com, vimeo.com, paypal.com, alibaba.com and aol.com, where TruePx's own check finds Tailwind); intuit.com has those names only past the first 3,000 rules TruePx reads, and this one before them"
   },
+  "TanStack": {
+    "markers": [
+      {
+        "rule": "js __TSR_ROUTER__:",
+        "source": "https://github.com/TanStack/router/blob/da2adec76dbe6c0da6d6a0d5640f7b9388217f45/packages/router-core/src/router.ts#L1235-L1237",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://chatgpt.com/",
+        "checked": "2026-10-30",
+        "found": "protocolAllowlist:e.protocolAllowlist??rr}),typeof document<`u`&&(self.__TSR_ROUTER__=this)}isShell(){return!!t"
+      },
+      {
+        "url": "https://tanstarter.dev/",
+        "checked": "2026-10-30",
+        "found": "protocolAllowlist:e.protocolAllowlist??j}),self.__TSR_ROUTER__=this}isShell(){return!!this.options.isShell}"
+      }
+    ],
+    "negative": [
+      {
+        "found": "window.__reactRouterContext = {\"basename\":\"/\",\"future\":{\"unstable_optimizeDeps\":false,",
+        "why": "React Router's own global, another client-side router (https://www.shopify.com/): not TanStack Router"
+      }
+    ]
+  },
   "UPS": {
     "removed": [
       {

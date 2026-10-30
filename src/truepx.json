@@ -297,6 +297,11 @@
       "--tw-divide-x-reverse"
     ]
   },
+  "TanStack": {
+    "js": {
+      "__TSR_ROUTER__": ""
+    }
+  },
   "UPS": {
     "remove": {
       "text": [
