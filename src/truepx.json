@@ -271,6 +271,11 @@
       ]
     }
   },
+  "Tailwind CSS": {
+    "css": [
+      "--tw-divide-x-reverse"
+    ]
+  },
   "UPS": {
     "remove": {
       "text": [

@@ -968,6 +968,29 @@
       }
     ]
   },
+  "Tailwind CSS": {
+    "markers": [
+      {
+        "rule": "css: --tw-divide-x-reverse",
+        "source": "https://github.com/tailwindlabs/tailwindcss/blob/4f9f603e12b51cc53b8a09c7739b8f88c8eb87eb/src/corePlugins.js#L1401-L1414",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.intuit.com/",
+        "checked": "2026-10-30",
+        "found": ".divide-x > :not([hidden]) ~ :not([hidden]) { --tw-divide-x-reverse: 0; border-left-width: calc(1px*(1 - var(--tw-divide-x-reverse)));"
+      }
+    ],
+    "negative": [
+      {
+        "found": "*, ::before, ::after, ::backdrop { --un-bg-opacity: 100%; --un-border-opacity: 100%;",
+        "why": "UnoCSS's own variables, under its --un- prefix (https://unocss.dev/): another utility-first CSS engine, not Tailwind"
+      }
+    ],
+    "singleSite": "the other Tailwind pages checked already show Tailwind through the css names src/technologies/ lists, in the stylesheet rules TruePx reads, or have no stylesheet TruePx can read (linkedin.com, vimeo.com, paypal.com, alibaba.com and aol.com, where TruePx's own check finds Tailwind); intuit.com has those names only past the first 3,000 rules TruePx reads, and this one before them"
+  },
   "UPS": {
     "removed": [
       {
