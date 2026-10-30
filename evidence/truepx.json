@@ -605,6 +605,36 @@
       }
     ]
   },
+  "OpenAI Ads Measurement Pixel": {
+    "markers": [
+      {
+        "rule": "scriptSrc: bzrcdn\\.openai\\.com/sdk/oaiq\\.min\\.js",
+        "source": "https://developers.openai.com/ads/measurement-pixel"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.zoom.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      },
+      {
+        "url": "https://applovin.com/",
+        "checked": "2026-10-30",
+        "found": "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://www.redditstatic.com/ads/pixel.js",
+        "why": "Reddit's conversion pixel, another ad network's measurement script on the same page (https://applovin.com/): not OpenAI's"
+      },
+      {
+        "found": "https://connect.facebook.net/en_US/fbevents.js",
+        "why": "Meta's pixel on the same page (https://applovin.com/): another ad network's measurement script"
+      }
+    ]
+  },
   "parallax.js": {
     "removed": [
       {

@@ -166,6 +166,15 @@
       ]
     }
   },
+  "OpenAI Ads Measurement Pixel": {
+    "cats": [
+      36
+    ],
+    "scriptSrc": [
+      "bzrcdn\\.openai\\.com/sdk/oaiq\\.min\\.js"
+    ],
+    "website": "https://developers.openai.com/ads/measurement-pixel"
+  },
   "parallax.js": {
     "remove": {
       "scriptSrc": [
