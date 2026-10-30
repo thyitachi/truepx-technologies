@@ -280,6 +280,9 @@
       ]
     }
   },
+  "Storyblok": {
+    "dom": "img[src*='//a-us.storyblok.com/']"
+  },
   "Svelte": {
     "dom": {
       "[class*='svelte-']": {

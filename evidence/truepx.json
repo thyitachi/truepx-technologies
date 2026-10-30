@@ -1000,6 +1000,32 @@
       }
     ]
   },
+  "Storyblok": {
+    "markers": [
+      {
+        "rule": "dom img[src*='//a-us.storyblok.com/']:",
+        "source": "https://www.storyblok.com/docs/concepts/assets"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.stanford.edu/",
+        "checked": "2026-10-30",
+        "found": "<img src=\"https://a-us.storyblok.com/f/1023936/1200x800/b3a9fe9bca/brophy-lab-1200w.jpg/m/800x1067/smart/filters:quality(60)\" loading=\"lazy\""
+      },
+      {
+        "url": "https://www.veevart.com/",
+        "checked": "2026-10-30",
+        "found": "<img src=\"https://a-us.storyblok.com/f/1001181/82x125/cb335ab9f5/echo-logo-1.webp\" alt=\"Client or partner logo\""
+      }
+    ],
+    "negative": [
+      {
+        "found": "decoding=\"async\" data-nimg=\"1\" class=\"mR6k5W_icon\" style=\"color:transparent\" srcset=\"https://images.ctfassets.net/jtqsy5pye0zd/2egxCdPULinwlWTJZCku6/",
+        "why": "an image from Contentful's image CDN, another headless CMS (https://www.contentful.com/): not Storyblok's asset host"
+      }
+    ]
+  },
   "Svelte": {
     "markers": [
       {
