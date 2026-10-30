@@ -451,6 +451,17 @@
             "why": "a rule in OneTrust's auto-blocking script (OtAutoBlock.js), which names scripts to hold back until consent, for a script the page does not load"
           }
         ]
+      },
+      {
+        "rule": "js Piwik:",
+        "misfired": [
+          {
+            "url": "https://european-union.europa.eu/index_en",
+            "checked": "2026-10-30",
+            "found": "Matomo javascript tracker or Piwik PRO javascript tracker was already initiated on this page",
+            "why": "Piwik PRO's own tracker (ppms.js, served from www.webanalytics.europa.eu) defines window.Piwik: the page runs Piwik PRO, not Matomo, and has no window.Matomo"
+          }
+        ]
       }
     ]
   },
@@ -658,10 +669,10 @@
             "why": "a list of consent platforms in Microsoft's UET tag (bat.js): a name in another company's code, not Piwik PRO"
           },
           {
-            "url": "https://european-union.europa.eu/index_en",
+            "url": "https://apache.org/",
             "checked": "2026-10-30",
-            "found": "window.Matomo=window.Piwik=",
-            "why": "Matomo's own tracker (matomo.js), which keeps its old name Piwik as an alias: the page runs Matomo, which Piwik PRO Core excludes, so the match also hid Matomo"
+            "found": "if(typeof window.Matomo!==\"object\"){window.Matomo=window.Piwik=",
+            "why": "Matomo's own tracker (analytics.apache.org/matomo.js), which keeps its old name Piwik as an alias: the page runs Matomo, which Piwik PRO Core excludes, so the match also hid Matomo"
           },
           {
             "url": "https://www.cpanel.net/",

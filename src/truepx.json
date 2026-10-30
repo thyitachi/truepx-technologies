@@ -134,6 +134,9 @@
     "remove": {
       "scripts": [
         "matomo(?:\\.min)?\\.js"
+      ],
+      "js": [
+        "Piwik"
       ]
     }
   },
