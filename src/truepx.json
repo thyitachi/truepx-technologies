@@ -290,7 +290,7 @@
     "dom": {
       "[class*='svelte-']": {
         "attributes": {
-          "class": "(?<!\\S)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?!\\S)"
+          "class": "(?<!\\S)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{5,7}(?!\\S)"
         }
       }
     }
