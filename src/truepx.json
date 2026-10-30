@@ -229,7 +229,10 @@
       "scripts": [
         "piwik"
       ]
-    }
+    },
+    "scriptSrc": [
+      "^https?://[^/]+/ppms\\.js(?:[?#]|$)"
+    ]
   },
   "PubMatic": {
     "remove": {

@@ -824,6 +824,35 @@
     ]
   },
   "Piwik PRO Core": {
+    "markers": [
+      {
+        "rule": "scriptSrc: ^https?://[^/]+/ppms\\.js(?:[?#]|$)",
+        "source": "https://help.piwik.pro/support/getting-started/no-piwik-pro-tag-manager-install-a-tracking-code/"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://europa.eu/",
+        "checked": "2026-10-30",
+        "found": "https://www.webanalytics.europa.eu/ppms.js"
+      },
+      {
+        "url": "https://ind.nl/",
+        "checked": "2026-10-30",
+        "found": "https://statistics.ind.nl/ppms.js"
+      },
+      {
+        "url": "https://www.rijksoverheid.nl/",
+        "checked": "2026-10-30",
+        "found": "https://statistiek.rijksoverheid.nl/ppms.js"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://analytics.apache.org/matomo.js",
+        "why": "Matomo's own tracker, self-hosted on the site's analytics host (https://apache.org/): Matomo, not Piwik PRO"
+      }
+    ],
     "removed": [
       {
         "rule": "scripts: piwik",
