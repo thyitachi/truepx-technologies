@@ -271,6 +271,15 @@
       ]
     }
   },
+  "Svelte": {
+    "dom": {
+      "[class*='svelte-']": {
+        "attributes": {
+          "class": "(?:^|\\s)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?:\\s|$)"
+        }
+      }
+    }
+  },
   "Tailwind CSS": {
     "css": [
       "--tw-divide-x-reverse"

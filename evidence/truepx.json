@@ -968,6 +968,38 @@
       }
     ]
   },
+  "Svelte": {
+    "markers": [
+      {
+        "rule": "dom [class*='svelte-']: class (?:^|\\s)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?:\\s|$)",
+        "source": "https://github.com/sveltejs/svelte/blob/d8b31333ec4afeab7dd178aedc7c187bfb971531/packages/svelte/src/compiler/compile/css/Stylesheet.js#L329-L332",
+        "license": "MIT"
+      },
+      {
+        "rule": "dom [class*='svelte-']: class (?:^|\\s)svelte-(?=[a-z]{0,6}\\d)[a-z\\d]{1,7}(?:\\s|$)",
+        "source": "https://github.com/sveltejs/svelte/blob/d8b31333ec4afeab7dd178aedc7c187bfb971531/packages/svelte/src/compiler/compile/utils/hash.js#L9-L16",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://apache.org/",
+        "checked": "2026-10-30",
+        "found": "<div class=\"pagefind-ui svelte-e9gkc3 pagefind-ui--reset\"><form class=\"pagefind-ui__form svelte-e9gkc3\" role=\"search\" aria-label=\"Search this site\""
+      },
+      {
+        "url": "https://starlight.astro.build/",
+        "checked": "2026-10-30",
+        "found": "<div class=\"pagefind-ui svelte-e9gkc3 pagefind-ui--reset\"><form class=\"pagefind-ui__form svelte-e9gkc3\" role=\"search\" aria-label=\"Search this site\""
+      }
+    ],
+    "negative": [
+      {
+        "found": "<a href=\"#main\" class=\"skip-link w-fit z-50 mt-3 px-4 py-2 inline-flex justify-center text-white font-semibold bg-astro-dark-800 border border-astro-dark-100/20\"",
+        "why": "a link on a page built with Astro, another compiler that scopes its styles (https://astro.build/), here with data-astro-cid- attributes and the site's own astro- classes: no svelte- class"
+      }
+    ]
+  },
   "Tailwind CSS": {
     "markers": [
       {
