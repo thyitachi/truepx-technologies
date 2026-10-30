@@ -983,6 +983,33 @@
       }
     ]
   },
+  "Vue.js": {
+    "markers": [
+      {
+        "rule": "dom body > div: __vue__",
+        "source": "https://github.com/vuejs/vue/blob/13f4e7dc03e2caed900ac70ff8b8fe58dda45663/src/core/instance/lifecycle.ts#L79-L85",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://web.mit.edu/",
+        "checked": "2026-10-30",
+        "found": "<div id=\"notification\"><!----></div>"
+      },
+      {
+        "url": "https://eye4.cn/",
+        "checked": "2026-10-30",
+        "found": "<div data-v-1c0a4052=\"\" id=\"app\"><div data-v-1c0a4052=\"\"><ul data-v-1c0a4052=\"\" class=\"side-pannel\">"
+      }
+    ],
+    "negative": [
+      {
+        "found": "<div id=\"root\"><div class=\"excalidraw-app\" style=\"height: 100%;\">",
+        "why": "a React app's root, a div right under body (https://excalidraw.com/): React keys it with its own __reactContainer$ property, and it has no __vue__"
+      }
+    ]
+  },
   "Webpack": {
     "markers": [
       {

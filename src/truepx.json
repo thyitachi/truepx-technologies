@@ -278,6 +278,15 @@
       ]
     }
   },
+  "Vue.js": {
+    "dom": {
+      "body > div": {
+        "properties": {
+          "__vue__": ""
+        }
+      }
+    }
+  },
   "Webpack": {
     "js": {
       "webpackChunk_N_E": "",
