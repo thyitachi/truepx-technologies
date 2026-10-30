@@ -950,7 +950,7 @@
     "negative": [
       {
         "found": "https://analytics.apache.org/matomo.js",
-        "why": "Matomo's own tracker, self-hosted on the site's analytics host (https://apache.org/): Matomo, not Piwik PRO"
+        "why": "Matomo's own tracker, self-hosted on the site's analytics host (https://apache.org/): Matomo, not Piwik PRO. Piwik PRO Core excludes Matomo Analytics, so a page this rule listed by mistake would also lose a real Matomo like this one. A search for other files named ppms.js (Piwik PRO's docs and its server-side tag manager template, which serves the file as /ppms.js; a web search; urlscan.io) found Piwik PRO's tracker at every host's root it found: the sites' own analytics hosts, and rumiview.com, whose ppms.php takes Piwik PRO's idsite and pv_id and whose containers/<site id>.js is Piwik PRO's container path. The one unrelated ppms found, an npm package for power plant monitoring (@esome-dev/ppms), is served from a package path, not as /ppms.js at a host's root"
       }
     ],
     "removed": [
