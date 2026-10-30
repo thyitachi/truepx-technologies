@@ -232,6 +232,41 @@
       }
     ]
   },
+  "Fastly": {
+    "markers": [
+      {
+        "rule": "headers X-Served-By: (?:^|[\\s,])cache-[a-z]{3}(?:-[a-z]+)?\\d+-[a-z]{3}(?:,|$)",
+        "source": "https://www.fastly.com/documentation/reference/http/http-headers/X-Served-By/"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.gov.uk/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260034-DEL"
+      },
+      {
+        "url": "https://arxiv.org/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-lga-kjfk8660037-LGA, cache-lga-kjfk8660037-LGA, cache-lga-kjfk8660056-LGA, cache-del-vibw2260029-DEL"
+      },
+      {
+        "url": "https://www.mozilla.org/",
+        "checked": "2026-10-30",
+        "found": "x-served-by: cache-del-vibw2260031-DEL, cache-del-vibw2260031-DEL, cache-del-vibw2260033-DEL"
+      }
+    ],
+    "negative": [
+      {
+        "found": "x-served-by: marketing-site",
+        "why": "the same header on a site served by another CDN (https://www.cloudflare.com/), naming the site's own application: not a Fastly cache node"
+      },
+      {
+        "found": "x-served-by: Substack",
+        "why": "the same header naming the site's own platform (https://substack.com/): not a Fastly cache node"
+      }
+    ]
+  },
   "FedEx": {
     "removed": [
       {

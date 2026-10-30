@@ -55,6 +55,11 @@
     },
     "dom": "iframe[src*='.fls.doubleclick.net/activityi']"
   },
+  "Fastly": {
+    "headers": {
+      "X-Served-By": "(?:^|[\\s,])cache-[a-z]{3}(?:-[a-z]+)?\\d+-[a-z]{3}(?:,|$)"
+    }
+  },
   "FedEx": {
     "remove": {
       "text": [
