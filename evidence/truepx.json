@@ -1058,6 +1058,33 @@
       }
     ]
   },
+  "Tabler Icons": {
+    "markers": [
+      {
+        "rule": "dom svg.tabler-icon:",
+        "source": "https://github.com/tabler/tabler-icons/blob/ed177a085b652fe04ec4f37ced867c94621e7840/packages/icons-react/src/createReactComponent.ts#L31",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://calendly.com/",
+        "checked": "2026-10-30",
+        "found": "viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon"
+      },
+      {
+        "url": "https://mantine.dev/",
+        "checked": "2026-10-30",
+        "found": "viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-search"
+      }
+    ],
+    "negative": [
+      {
+        "found": "viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-down",
+        "why": "an icon of Lucide, another outline icon set drawn the same way (https://www.cloudflare.com/): not Tabler Icons"
+      }
+    ]
+  },
   "Tailwind CSS": {
     "markers": [
       {

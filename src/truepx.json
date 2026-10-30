@@ -292,6 +292,13 @@
       }
     }
   },
+  "Tabler Icons": {
+    "cats": [
+      17
+    ],
+    "dom": "svg.tabler-icon",
+    "website": "https://tabler.io/icons"
+  },
   "Tailwind CSS": {
     "css": [
       "--tw-divide-x-reverse"
