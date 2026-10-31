@@ -357,6 +357,21 @@
       }
     ]
   },
+  "Fever": {
+    "removed": [
+      {
+        "rule": "scripts: feverup\\.com",
+        "misfired": [
+          {
+            "url": "https://www.trustpilot.com/review/feverup.com",
+            "checked": "2026-10-31",
+            "found": "\"@type\":\"WebPage\",\"@id\":\"https://www.trustpilot.com/review/feverup.com\",\"url\":\"https://www.trustpilot.com/review/feverup.com\",\"name\":\"Fever Reviews\"",
+            "why": "Trustpilot's page data names the companies it reviews by their domain: its schema.org JSON-LD and Next.js data give Fever's review page as /review/feverup.com, and its home page lists the companies of its latest reviews the same way. Nothing on the page loads from feverup.com. This was Fever's only pattern, so Fever now goes unlisted everywhere, even on a page that really embeds Fever, until an authored rule with a positive site is added"
+          }
+        ]
+      }
+    ]
+  },
   "Format": {
     "removed": [
       {

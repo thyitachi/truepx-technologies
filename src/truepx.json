@@ -67,6 +67,13 @@
       ]
     }
   },
+  "Fever": {
+    "remove": {
+      "scripts": [
+        "feverup\\.com"
+      ]
+    }
+  },
   "Format": {
     "remove": {
       "scripts": [
