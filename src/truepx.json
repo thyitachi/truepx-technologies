@@ -20,6 +20,16 @@
       ]
     }
   },
+  "C3.js": {
+    "remove": {
+      "scriptSrc": [
+        "c3(?:\\.min)?(?:-[a-zA-Z0-9]{8})?\\.js(?:\\?ver=((?:\\d+\\.)+\\d+))?\\;version:\\1"
+      ]
+    },
+    "scriptSrc": [
+      "/c3(?:\\.min)?(?:-[a-zA-Z0-9]{8})?\\.js(?:\\?ver=((?:\\d+\\.)+\\d+))?\\;version:\\1"
+    ]
+  },
   "ClickCease": {
     "remove": {
       "scripts": [

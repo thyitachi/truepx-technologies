@@ -104,6 +104,52 @@
       }
     ]
   },
+  "C3.js": {
+    "markers": [
+      {
+        "rule": "scriptSrc: /c3(?:\\.min)?(?:-[a-zA-Z0-9]{8})?\\.js(?:\\?ver=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+        "source": "https://github.com/c3js/c3/blob/2f3cddb818065f1d0c45f562745d4249e12980ff/package.json#L5-L8",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://c3js.org/",
+        "checked": "2026-10-31",
+        "found": "<script src=\"/js/c3.min-d2a1f852.js\" type=\"text/javascript\">"
+      },
+      {
+        "url": "https://www.macrodata.ch/",
+        "checked": "2026-10-31",
+        "found": "<script src=\"assets/plugins/c3/c3.min.js?v=1787648413\">"
+      }
+    ],
+    "negative": [
+      {
+        "found": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/chunks/webpack-035ab889ba86dcc3.js",
+        "why": "Next.js's webpack runtime chunk on stripe.com, named with a hash of 16 hex digits that ends in c3: not C3.js. The rule asks for c3 at the start of the file name, as C3.js names its files (c3.js, c3.min.js), so a hash that ends in c3 doesn't match"
+      }
+    ],
+    "removed": [
+      {
+        "rule": "scriptSrc: c3(?:\\.min)?(?:-[a-zA-Z0-9]{8})?\\.js(?:\\?ver=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+        "misfired": [
+          {
+            "url": "https://www.figma.com/",
+            "checked": "2026-10-31",
+            "found": "/_netlify/_next/static/chunks/377-4f0b00ffabaab8c3.js",
+            "why": "a chunk of the page's own Next.js build, which webpack names with a hash of 16 hex digits, here one that ends in c3, so the pattern reads c3.js in it: no C3.js. A hex hash ends in c3 once in 256 and a Next.js page loads 10 to 30 such chunks, so 4 to 11 pages in 100 have one (on 31 Oct 2026 the home pages of figma.com, yahoo.com, stripe.com, intuit.com, substack.com, twitch.tv, bbc.co.uk, digitalocean.com, mlb.com and note.com each did). C3.js isn't listed here only because it requires D3, which this page doesn't load; on a page that loads D3, such a chunk lists C3.js. This was C3.js's only pattern; the authored one asks for c3 at the start of the file name"
+          },
+          {
+            "url": "https://www.yahoo.com/",
+            "checked": "2026-10-31",
+            "found": "/_nca/_next/static/chunks/webpack-aebbd96cec08a8c3.js?dpl=sha-33ce731",
+            "why": "Next.js's webpack runtime chunk, with a hex hash that ends in c3: no C3.js, and no D3 on the page, which is all that keeps C3.js from being listed"
+          }
+        ]
+      }
+    ]
+  },
   "ClickCease": {
     "removed": [
       {
