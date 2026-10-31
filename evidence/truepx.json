@@ -1188,7 +1188,7 @@
     "negative": [
       {
         "found": "<a href=\"#main\" class=\"skip-link w-fit z-50 mt-3 px-4 py-2 inline-flex justify-center text-white font-semibold bg-astro-dark-800 border border-astro-dark-100/20\"",
-        "why": "a link on a page built with Astro, another compiler that scopes its styles (https://astro.build/), here with data-astro-cid- attributes and the site's own astro- classes: no svelte- class"
+        "why": "a link on a page built with Astro, another compiler that scopes its styles (https://astro.build/), here with data-astro-cid- attributes and the site's own astro- classes: no svelte- class. The rule asks for a digit in the hash ((?=[a-z]{0,6}\\d)) to keep out hand-written classes such as svelte-header, and that costs the hashes of 5 or 6 letters and no digit, such as svelte-abcdef: 26^5 + 26^6 of the 2^32 values Svelte's hash takes, about 7.5%. TruePx reads up to 50 class attributes per selector, so a page goes unlisted only where none it reads has a hash with a digit, as on a page with one small Svelte widget"
       }
     ]
   },
