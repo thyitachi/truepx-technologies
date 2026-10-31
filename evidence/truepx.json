@@ -1075,6 +1075,33 @@
       }
     ]
   },
+  "RxJS": {
+    "removed": [
+      {
+        "rule": "scriptSrc: rx(?:\\.\\w+)?(?:\\.compat|\\.global)?(?:\\.min)?\\.js",
+        "misfired": [
+          {
+            "url": "https://www.bbc.com/",
+            "checked": "2026-10-31",
+            "found": "/bbcdotcom/web/20261027-121803-88dfe2b2c8-web-3.26.0-4/_next/static/chunks/0z3rjge5m4grx.js",
+            "why": "a chunk of the page's own Next.js build, which Turbopack names with a hash, here one that ends in rx, so the pattern reads rx.js in it (about one such name in 1,300): 15 KB of the site's own helpers (map and set caches), no RxJS. This was RxJS's only scriptSrc; RxJS keeps its js rules, Rx.CompositeDisposable and Rx.Symbol"
+          },
+          {
+            "url": "https://linktr.ee/",
+            "checked": "2026-10-31",
+            "found": "/_marketing/_next/static/chunks/turbopack-0nta0hyoefmrx.js",
+            "why": "Turbopack's runtime chunk, named turbopack- and a hash that ends in rx: no RxJS"
+          },
+          {
+            "url": "https://www.anthropic.com/",
+            "checked": "2026-10-31",
+            "found": "/_next/static/chunks/3t8o33da1i6rx.js",
+            "why": "a 559-byte Turbopack chunk that loads others, with a hashed name that ends in rx: no RxJS"
+          }
+        ]
+      }
+    ]
+  },
   "Sanity.io": {
     "removed": [
       {

@@ -269,6 +269,13 @@
       ]
     }
   },
+  "RxJS": {
+    "remove": {
+      "scriptSrc": [
+        "rx(?:\\.\\w+)?(?:\\.compat|\\.global)?(?:\\.min)?\\.js"
+      ]
+    }
+  },
   "Sanity.io": {
     "remove": {
       "dom": [
