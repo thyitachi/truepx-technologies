@@ -1282,6 +1282,33 @@
       }
     ]
   },
+  "Snowplow Analytics": {
+    "removed": [
+      {
+        "rule": "scriptSrc: sp\\.js\\;confidence:50",
+        "misfired": [
+          {
+            "url": "https://www.dreamhost.com/",
+            "checked": "2026-10-31",
+            "found": "/_next/static/chunks/14ercdguwbwsp.js",
+            "why": "a chunk of the page's own Next.js build, which Turbopack names with a hash, here one that ends in sp, so the pattern reads sp.js in it (about one such name in 1,300): 11.6 KB of the site's own code, no Snowplow. At confidence 50 this pattern alone lists Snowplow, and here it did, with nothing else of Snowplow on the page: no GlobalSnowplowNamespace or Snowplow global, no Snowplow cookie. Snowplow keeps its js and cookie rules and its scriptSrc patterns for the paths Snowplow serves its tracker from (its CloudFront host, jsDelivr, cdnjs, unpkg)"
+          },
+          {
+            "url": "https://www.yahoo.com/",
+            "checked": "2026-10-31",
+            "found": "https://ads.pubmatic.com/AdServer/js/google-esp.js",
+            "why": "PubMatic's script for Google Ad Manager's secure signals (it adds PubMatic to googletag.secureSignalProviders), whose name ends in esp.js: no Snowplow, and nothing else of Snowplow on the page. OpenX serves the same kind of script as esp.js (oa.openxcdn.net/esp.js), so pages that sell ads through either are listed"
+          },
+          {
+            "url": "https://www.branch.io/",
+            "checked": "2026-10-31",
+            "found": "/wp-content/themes/branch/assets/dist/js/onetrust-csp.js?ver=1790782073",
+            "why": "a 552-byte script of the site's own that works around the inline styles of OneTrust's cookie banner, named onetrust-csp.js, which ends in sp.js: no Snowplow, and nothing else of Snowplow on the page"
+          }
+        ]
+      }
+    ]
+  },
   "Storyblok": {
     "markers": [
       {

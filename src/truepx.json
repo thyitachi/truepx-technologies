@@ -321,6 +321,13 @@
       ]
     }
   },
+  "Snowplow Analytics": {
+    "remove": {
+      "scriptSrc": [
+        "sp\\.js\\;confidence:50"
+      ]
+    }
+  },
   "Storyblok": {
     "dom": "img[src*='//a-us.storyblok.com/']"
   },
