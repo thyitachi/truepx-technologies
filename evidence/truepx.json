@@ -372,6 +372,71 @@
       }
     ]
   },
+  "Font Awesome": {
+    "markers": [
+      {
+        "rule": "dom .fa,.fas,.far,.fal,.fat,.fad,.fab,.fa-solid,.fa-regular,.fa-light,.fa-thin,.fa-duotone,.fa-brands: class (?<!\\S)fa-(?:(?!d)[a-z0-9]|[a-z0-9-]{6})[a-z0-9-]*",
+        "source": "https://github.com/FortAwesome/Font-Awesome/blob/a8386aae19e200ddb0f6845b5feeee5eb7013687/css/font-awesome.css#L14",
+        "license": "MIT"
+      },
+      {
+        "rule": "dom .fa,.fas,.far,.fal,.fat,.fad,.fab,.fa-solid,.fa-regular,.fa-light,.fa-thin,.fa-duotone,.fa-brands: class (?<!\\S)fa-(?:(?!d)[a-z0-9]|[a-z0-9-]{6})[a-z0-9-]*",
+        "source": "https://github.com/FortAwesome/Font-Awesome/blob/a8386aae19e200ddb0f6845b5feeee5eb7013687/css/font-awesome.css#L189",
+        "license": "MIT"
+      },
+      {
+        "rule": "dom .fa,.fas,.far,.fal,.fat,.fad,.fab,.fa-solid,.fa-regular,.fa-light,.fa-thin,.fa-duotone,.fa-brands: class (?<!\\S)fa-(?:(?!d)[a-z0-9]|[a-z0-9-]{6})[a-z0-9-]*",
+        "source": "https://github.com/FortAwesome/Font-Awesome/blob/7d3d774145ac38663f6d1effc6def0334b68ab7e/css/all.css#L5-L10",
+        "license": "MIT"
+      },
+      {
+        "rule": "dom .fa,.fas,.far,.fal,.fat,.fad,.fab,.fa-solid,.fa-regular,.fa-light,.fa-thin,.fa-duotone,.fa-brands: class (?<!\\S)fa-(?:(?!d)[a-z0-9]|[a-z0-9-]{6})[a-z0-9-]*",
+        "source": "https://github.com/FortAwesome/Font-Awesome/blob/af620534bfc3c2d4cbefcfeec29603bbe7809e64/css/fontawesome.css#L10-L16",
+        "license": "MIT"
+      },
+      {
+        "rule": "dom .fa,.fas,.far,.fal,.fat,.fad,.fab,.fa-solid,.fa-regular,.fa-light,.fa-thin,.fa-duotone,.fa-brands: class (?<!\\S)fa-(?:(?!d)[a-z0-9]|[a-z0-9-]{6})[a-z0-9-]*",
+        "source": "https://github.com/FortAwesome/Font-Awesome/blob/af620534bfc3c2d4cbefcfeec29603bbe7809e64/js/fontawesome.js#L405-L439",
+        "license": "MIT"
+      }
+    ],
+    "positive": [
+      {
+        "url": "https://www.nvidia.com/en-us/",
+        "checked": "2026-10-31",
+        "found": "<span class=\"fa-light fa-chevron-down\">"
+      },
+      {
+        "url": "https://www.plesk.com/",
+        "checked": "2026-10-31",
+        "found": "<i class=\"fas fa-bars\">"
+      },
+      {
+        "url": "https://www.who.int/",
+        "checked": "2026-10-31",
+        "found": "<i class=\"fas fa-language\" aria-hidden=\"true\">"
+      }
+    ],
+    "negative": [
+      {
+        "found": "<b id=\"read-about-our-approach-to-external-linking.\" class=\"TextFragment-styles__TextFragmentStyled-sc-99e7c69b-0 fa-DACi\">",
+        "why": "a class styled-components generated on www.bbc.com, which loads no Font Awesome. A generated name is a 32-bit hash written in letters, at most 6 of them, with a hyphen put between every a and d (in either case), so one that starts with fa goes on with -d or -D and has at most 5 characters after fa-: faDACi is written fa-DACi. The rule asks for an element with one of Font Awesome's style classes (fa, fas, far, fal, fat, fad, fab, fa-solid, fa-regular, fa-light, fa-thin, fa-duotone, fa-brands) and an fa- class that a generated name can't be: one whose next character isn't a d, or with 6 or more after fa-. None of the 7,454,981 names of up to 6 letters that start with fa matches it once the hyphens are put in. An atomic class named fa, which some sites' generated CSS uses, meets the selector but isn't an fa- class. What it costs: 12 of the 2,616 fa- classes Font Awesome 4.7, 5.15 and 6.7 define start with d and are at most 5 characters long (fa-dog, fa-dove, fa-dice, fa-dna...), and an element whose only fa- class is one of those doesn't match; TruePx reads up to 50 class attributes per selector, so a page goes unlisted only where all of its icons are such"
+      }
+    ],
+    "removed": [
+      {
+        "rule": "dom [class*='fa']:",
+        "misfired": [
+          {
+            "url": "https://www.bbc.com/",
+            "checked": "2026-10-31",
+            "found": "<b id=\"read-about-our-approach-to-external-linking.\" class=\"TextFragment-styles__TextFragmentStyled-sc-99e7c69b-0 fa-DACi\">",
+            "why": "a class name styled-components generated (a hash written in letters, with a hyphen put between a and d, so faDACi is written fa-DACi), which the pattern (?:^|\\s)fa(?:-[a-z0-9-]+)?(?:\\s|$), read without regard to case, takes for a Font Awesome icon class. The page loads no Font Awesome: none of its script files, requests or stylesheet links names it, and no element has fa, fas or another of its style classes. One generated name in about 15,000 starts with fa- (286,730 of the 2^32 hashes), so a page with 1,000 to 2,500 of them, as sites built with styled-components have, has one about 6 to 15 times in 100. This was the only Font Awesome rule that reads classes; the authored rule replaces it"
+          }
+        ]
+      }
+    ]
+  },
   "Format": {
     "removed": [
       {
